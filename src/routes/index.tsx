@@ -76,10 +76,10 @@ function Index() {
         <header className="relative mx-auto flex max-w-5xl items-center justify-between px-6 pt-12">
           <div className="flex items-center gap-2">
             <span className="grid size-8 place-items-center rounded-full bg-riso font-hand text-lg text-paper">
-              M
+              v
             </span>
             <span className="font-display text-sm font-medium uppercase tracking-[0.3em] text-ink/70">
-              for Marco
+              FOR MY PRINCE CHARMING
             </span>
           </div>
           <span className="rotate-[-3deg] font-hand text-lg text-riso">a keepsake, not a card</span>
@@ -88,13 +88,13 @@ function Index() {
         <section className="relative mx-auto grid max-w-5xl items-center gap-10 px-6 pb-14 pt-16 lg:grid-cols-12">
           <div className="lg:col-span-7">
             <p className="mb-5 font-body text-xs uppercase tracking-[0.35em] text-sage">
-              February 14 &middot; Boyfriend&rsquo;s Day
+              OCTOBER 3 &middot; BOYFRIEND&rsquo;S DAY
             </p>
             <h1
               className="text-balance font-display text-[3.25rem] font-medium leading-[0.95] text-ink lg:text-[4.5rem]"
               style={{ maxWidth: "15ch" }}
             >
-              Hi, Marco. <span className="italic text-riso">I made you</span> a little museum.
+              my love, Vaibav. <span className="italic text-riso">I made you</span> a little museum.
             </h1>
             <p className="mt-6 max-w-[42ch] text-pretty font-body text-base text-ink/75">
               Tucked into a shoebox of polaroids, half a zine, and one very long letter. Scroll slow
