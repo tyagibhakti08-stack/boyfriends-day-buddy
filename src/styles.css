@@ -155,3 +155,22 @@
     color: var(--color-foreground);
   }
 }
+
+.riso-dots {
+  background-image: radial-gradient(rgba(51, 48, 42, 0.06) 1px, transparent 1px);
+  background-size: 16px 16px;
+}
+
+.floaty {
+  animation: floaty 7s ease-in-out infinite;
+}
+
+@keyframes floaty {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-6deg);
+  }
+  50% {
+    transform: translateY(-14px) rotate(4deg);
+  }
+}
