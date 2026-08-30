@@ -121,7 +121,7 @@ function Wish({ onNext }: { onNext: () => void }) {
           Happy Boyfriend&rsquo;s Day, <span className="italic text-riso">my love</span>.
         </h1>
         <p className="mt-6 max-w-[42ch] text-pretty text-base text-ink/75">
-          I made you something small and handmade &mdash; five little chapters, one for each way you
+          I made you something &mdash; five little chapters, one for each way you
           make my days softer.
         </p>
         <div className="mt-8 flex flex-wrap items-center gap-3">
