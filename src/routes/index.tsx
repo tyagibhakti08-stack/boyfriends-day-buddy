@@ -275,7 +275,7 @@ function buildDeck(): Card[] {
   const pairs = [...ICONS, ...ICONS];
   for (let i = pairs.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
-    [pairs[i], pairs[j]] = [pairs[j], pairs[i]];
+    [pairs[i], pairs[j]] = [pairs[j] as string, pairs[i] as string];
   }
   return pairs.map((icon, id) => ({ id, icon, flipped: false, matched: false }));
 }
@@ -301,7 +301,7 @@ function Game({ onNext }: { onNext: () => void }) {
 
     if (nextPicks.length === 2) {
       setMoves((m) => m + 1);
-      const [a, b] = nextPicks.map((p) => next.find((c) => c.id === p)!);
+      const [a, b] = nextPicks.map((p) => next.find((c) => c.id === p)!) as [Card, Card];
       const match = a.icon === b.icon;
       setTimeout(() => {
         setCards((cur) =>
