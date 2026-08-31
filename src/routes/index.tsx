@@ -79,22 +79,56 @@ function Index() {
   );
 }
 
+const FLOATERS = [
+  { c: "right-16 top-24 text-3xl text-riso2/50", d: "0s", g: "\u2665" },
+  { c: "left-10 top-[320px] text-2xl text-riso/40", d: "1.6s", g: "\u2665" },
+  { c: "right-24 top-[560px] text-base text-sage/40", d: "3s", g: "\u2661" },
+  { c: "left-1/4 top-[140px] text-xl text-riso/25", d: "2.3s", g: "\u2661" },
+  { c: "right-1/3 top-[820px] text-2xl text-riso2/40", d: "4.1s", g: "\u2665" },
+  { c: "left-16 top-[700px] text-lg text-sage/30", d: "0.8s", g: "\u273F" },
+];
+
 function Hearts() {
   return (
     <div aria-hidden="true" className="pointer-events-none absolute inset-0 select-none">
-      <span className="floaty absolute right-16 top-24 text-3xl text-riso2/50">&#9829;</span>
-      <span
-        className="floaty absolute left-10 top-[320px] text-2xl text-riso/40"
-        style={{ animationDelay: "1.6s" }}
-      >
-        &#9829;
-      </span>
-      <span
-        className="floaty absolute right-24 top-[560px] text-base text-sage/40"
-        style={{ animationDelay: "3s" }}
-      >
-        &#9825;
-      </span>
+      {FLOATERS.map((f) => (
+        <span key={f.c} className={`floaty absolute ${f.c}`} style={{ animationDelay: f.d }}>
+          {f.g}
+        </span>
+      ))}
+    </div>
+  );
+}
+
+function Confetti({ count = 36 }: { count?: number }) {
+  const bits = useRef(
+    Array.from({ length: count }, (_, i) => ({
+      i,
+      left: Math.random() * 100,
+      delay: Math.random() * 1.8,
+      dur: 3 + Math.random() * 2.5,
+      size: 10 + Math.random() * 18,
+      g: ["\u2665", "\u2661", "\u273F", "\u2726"][i % 4] as string,
+      tone: ["text-riso", "text-riso2", "text-sage", "text-ink/50"][i % 4] as string,
+    })),
+  );
+
+  return (
+    <div aria-hidden="true" className="pointer-events-none fixed inset-0 z-50 overflow-hidden">
+      {bits.current.map((b) => (
+        <span
+          key={b.i}
+          className={`confetti absolute top-0 ${b.tone}`}
+          style={{
+            left: `${b.left}%`,
+            fontSize: `${b.size}px`,
+            animationDelay: `${b.delay}s`,
+            animationDuration: `${b.dur}s`,
+          }}
+        >
+          {b.g}
+        </span>
+      ))}
     </div>
   );
 }
@@ -103,9 +137,13 @@ function NextButton({ onClick, label }: { onClick: () => void; label: string }) 
   return (
     <button
       onClick={onClick}
-      className="rounded-[min(1vw,12px)] bg-ink px-5 py-2.5 text-sm font-medium text-paper transition-transform hover:-translate-y-0.5"
+      className="group relative overflow-hidden rounded-[min(1vw,12px)] bg-ink px-5 py-2.5 text-sm font-medium text-paper transition-transform duration-300 hover:-translate-y-1 hover:shadow-[0_12px_24px_-12px_rgba(0,0,0,0.5)] active:translate-y-0"
     >
-      {label}
+      <span className="relative z-10">{label}</span>
+      <span
+        aria-hidden="true"
+        className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-paper/25 to-transparent transition-transform duration-700 group-hover:translate-x-full"
+      />
     </button>
   );
 }
