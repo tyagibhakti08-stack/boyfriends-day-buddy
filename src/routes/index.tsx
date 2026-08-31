@@ -68,7 +68,7 @@ function Index() {
         </nav>
       )}
 
-      <div className="relative">
+      <div className="relative" key={step}>
         {step === 0 && <Wish onNext={() => go(1)} />}
         {step === 1 && <Music onNext={() => go(2)} />}
         {step === 2 && <Letter onNext={() => go(3)} />}
