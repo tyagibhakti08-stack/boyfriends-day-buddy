@@ -397,32 +397,52 @@ function Game({ onNext }: { onNext: () => void }) {
 
   return (
     <section className="relative mx-auto max-w-2xl px-6 pb-24 pt-14 text-center">
-      <p className="text-xs uppercase tracking-[0.35em] text-sage">CHAPTER THREE</p>
-      <h2 className="mt-4 text-balance font-display text-4xl font-medium">Match our little things</h2>
-      <p className="mx-auto mt-4 max-w-[40ch] text-pretty text-ink/75">
+      {won && <Confetti />}
+      <p className="rise text-xs uppercase tracking-[0.35em] text-sage">CHAPTER THREE</p>
+      <h2
+        className="rise mt-4 text-balance font-display text-4xl font-medium"
+        style={{ animationDelay: "0.1s" }}
+      >
+        Match our little things
+      </h2>
+      <p
+        className="rise mx-auto mt-4 max-w-[40ch] text-pretty text-ink/75"
+        style={{ animationDelay: "0.2s" }}
+      >
         Six pairs, all of them us. Find them all to unlock the picture wall.
       </p>
 
       <div className="mt-8 grid grid-cols-4 gap-3 sm:gap-4">
-        {cards.map((c) => (
-          <button
-            key={c.id}
-            onClick={() => flip(c.id)}
-            aria-label={c.flipped || c.matched ? `Card ${c.icon}` : "Hidden card"}
-            className={`grid aspect-square place-items-center rounded-[min(1vw,14px)] text-2xl ring-1 ring-black/5 transition-all duration-300 sm:text-3xl ${
-              c.matched
-                ? "bg-riso2/40 text-riso"
-                : c.flipped
-                  ? "bg-paper2 text-ink"
-                  : "bg-ink/85 text-transparent hover:-translate-y-0.5"
-            }`}
-          >
-            {c.flipped || c.matched ? c.icon : "\u2661"}
-          </button>
-        ))}
+        {cards.map((c, i) => {
+          const face = c.flipped || c.matched;
+          return (
+            <button
+              key={c.id}
+              onClick={() => flip(c.id)}
+              aria-label={face ? `Card ${c.icon}` : "Hidden card"}
+              className={`flip-scene pop aspect-square rounded-[min(1vw,14px)] text-2xl transition-transform duration-300 sm:text-3xl ${
+                face ? "" : "hover:-translate-y-1"
+              } ${c.matched ? "beat" : ""}`}
+              style={{ animationDelay: c.matched ? "0s" : `${i * 0.035}s` }}
+            >
+              <div className={`flip-inner ${face ? "is-flipped" : ""}`}>
+                <span className="flip-face bg-ink/85 text-transparent ring-1 ring-black/5">
+                  {"\u2661"}
+                </span>
+                <span
+                  className={`flip-face flip-back ring-1 ring-black/5 ${
+                    c.matched ? "bg-riso2/40 text-riso" : "bg-paper2 text-ink"
+                  }`}
+                >
+                  {c.icon}
+                </span>
+              </div>
+            </button>
+          );
+        })}
       </div>
 
-      <p className="mt-5 font-hand text-lg text-ink/60">
+      <p className={`mt-5 font-hand text-lg text-ink/60 ${won ? "pop text-riso" : ""}`}>
         {won ? `all found in ${moves} moves \u2014 of course you did` : `moves: ${moves}`}
       </p>
 
@@ -433,7 +453,7 @@ function Game({ onNext }: { onNext: () => void }) {
             setPicks([]);
             setMoves(0);
           }}
-          className="rounded-[min(1vw,12px)] border border-ink/15 px-5 py-2.5 text-sm font-medium text-ink/70"
+          className="rounded-[min(1vw,12px)] border border-ink/15 px-5 py-2.5 text-sm font-medium text-ink/70 transition-all hover:-translate-y-0.5 hover:border-ink/30"
         >
           Shuffle again
         </button>
