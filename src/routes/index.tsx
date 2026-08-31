@@ -225,26 +225,50 @@ function Music({ onNext }: { onNext: () => void }) {
 
   return (
     <section className="relative mx-auto max-w-3xl px-6 pb-24 pt-14 text-center">
-      <p className="text-xs uppercase tracking-[0.35em] text-sage">CHAPTER ONE</p>
-      <h2 className="mt-4 text-balance font-display text-4xl font-medium">Our song</h2>
-      <p className="mx-auto mt-4 max-w-[40ch] text-pretty text-ink/75">
+      <p className="rise text-xs uppercase tracking-[0.35em] text-sage">CHAPTER ONE</p>
+      <h2 className="rise mt-4 text-balance font-display text-4xl font-medium" style={{ animationDelay: "0.1s" }}>
+        Our song
+      </h2>
+      <p
+        className="rise mx-auto mt-4 max-w-[40ch] text-pretty text-ink/75"
+        style={{ animationDelay: "0.2s" }}
+      >
         Put it on, let it run underneath the rest of this. It&rsquo;s the one that always sounds
         like you.
       </p>
 
-      <div className="mx-auto mt-10 max-w-sm rotate-[-1deg] rounded-[min(1vw,16px)] bg-paper2 p-8 ring-1 ring-black/5">
+      <div
+        className="pop mx-auto mt-10 max-w-sm rotate-[-1deg] rounded-[min(1vw,16px)] bg-paper2 p-8 ring-1 ring-black/5"
+        style={{ animationDelay: "0.28s" }}
+      >
         <div
-          className={`mx-auto grid size-32 place-items-center rounded-full bg-ink/90 ${
-            playing ? "spin-slow" : ""
+          className={`relative mx-auto grid size-32 place-items-center rounded-full bg-ink/90 transition-shadow duration-500 ${
+            playing ? "spin-slow shadow-[0_0_0_10px_rgba(0,0,0,0.05)]" : ""
           }`}
         >
           <div className="grid size-10 place-items-center rounded-full bg-paper">
             <div className="size-3 rounded-full bg-riso" />
           </div>
         </div>
+
+        <div
+          aria-hidden="true"
+          className={`mt-6 flex h-8 items-end justify-center gap-1.5 transition-opacity duration-500 ${
+            playing ? "opacity-100" : "opacity-25"
+          }`}
+        >
+          {[0, 1, 2, 3, 4, 5, 6].map((i) => (
+            <span
+              key={i}
+              className={`w-1.5 rounded-full bg-riso ${playing ? "eq-bar" : ""}`}
+              style={{ height: "100%", animationDelay: `${i * 0.11}s` }}
+            />
+          ))}
+        </div>
+
         <button
           onClick={toggle}
-          className="mt-7 w-full rounded-[min(1vw,12px)] bg-riso px-5 py-2.5 text-sm font-medium text-paper"
+          className="wiggle mt-6 w-full rounded-[min(1vw,12px)] bg-riso px-5 py-2.5 text-sm font-medium text-paper transition-transform hover:-translate-y-0.5"
         >
           {playing ? "Pause our song" : "Play our song"}
         </button>
