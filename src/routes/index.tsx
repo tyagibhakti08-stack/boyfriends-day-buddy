@@ -295,8 +295,11 @@ function Letter({ onNext }: { onNext: () => void }) {
   const [open, setOpen] = useState(false);
   return (
     <section className="relative mx-auto max-w-3xl px-6 pb-24 pt-14">
-      <p className="text-center text-xs uppercase tracking-[0.35em] text-sage">CHAPTER TWO</p>
-      <h2 className="mt-4 text-center text-balance font-display text-4xl font-medium">
+      <p className="rise text-center text-xs uppercase tracking-[0.35em] text-sage">CHAPTER TWO</p>
+      <h2
+        className="rise mt-4 text-center text-balance font-display text-4xl font-medium"
+        style={{ animationDelay: "0.1s" }}
+      >
         A love letter
       </h2>
 
@@ -304,32 +307,31 @@ function Letter({ onNext }: { onNext: () => void }) {
         <div className="mt-10 text-center">
           <button
             onClick={() => setOpen(true)}
-            className="mx-auto block w-full max-w-md rotate-[-1deg] rounded-[min(1vw,16px)] bg-paper2 p-12 ring-1 ring-black/5 transition-transform hover:rotate-0"
+            className="pop mx-auto block w-full max-w-md rotate-[-1deg] rounded-[min(1vw,16px)] bg-paper2 p-12 ring-1 ring-black/5 transition-all duration-500 hover:rotate-0 hover:-translate-y-1 hover:shadow-[0_20px_40px_-24px_rgba(0,0,0,0.45)]"
+            style={{ animationDelay: "0.2s" }}
           >
-            <span className="block text-5xl text-riso">&#9825;</span>
+            <span className="beat block text-5xl text-riso">&#9825;</span>
             <span className="mt-4 block font-hand text-2xl text-ink/70">open me</span>
           </button>
         </div>
       ) : (
-        <div className="relative mt-10 rotate-[-0.5deg] rounded-[min(1vw,16px)] bg-paper2 p-8 ring-1 ring-black/5 sm:p-12">
-          <span className="absolute -top-3 left-10 rotate-[-4deg] font-hand text-2xl text-riso">
+        <div className="pop relative mt-10 rotate-[-0.5deg] rounded-[min(1vw,16px)] bg-paper2 p-8 ring-1 ring-black/5 sm:p-12">
+          <span className="rise absolute -top-3 left-10 rotate-[-4deg] font-hand text-2xl text-riso">
             to my favorite person,
           </span>
           <div className="space-y-5 text-pretty font-display text-xl leading-[1.5] sm:text-2xl">
-            <p>
-              I don&rsquo;t say it enough: thank you for the ordinary Tuesday nights, the bad jokes,
-              and the way you make a room feel safer just by walking into it.
-            </p>
-            <p>
-              You are the person I want to tell everything to first &mdash; the good news, the silly
-              news, the 3am nothing-news. Loving you has never once felt like work.
-            </p>
-            <p>
-              So happy Boyfriend&rsquo;s Day. Today is just an excuse; I&rsquo;d have said all of
-              this anyway.
-            </p>
+            {LETTER.map((line, i) => (
+              <p key={i} className="rise" style={{ animationDelay: `${0.25 + i * 0.35}s` }}>
+                {line}
+              </p>
+            ))}
           </div>
-          <p className="mt-8 text-right font-hand text-2xl text-riso">always, me</p>
+          <p
+            className="rise mt-8 text-right font-hand text-2xl text-riso"
+            style={{ animationDelay: `${0.25 + LETTER.length * 0.35}s` }}
+          >
+            always, me
+          </p>
         </div>
       )}
 
