@@ -137,12 +137,12 @@ function NextButton({ onClick, label }: { onClick: () => void; label: string }) 
   return (
     <button
       onClick={onClick}
-      className="group relative overflow-hidden rounded-[min(1vw,12px)] bg-ink px-5 py-2.5 text-sm font-medium text-paper transition-transform duration-300 hover:-translate-y-1 hover:shadow-[0_12px_24px_-12px_rgba(0,0,0,0.5)] active:translate-y-0"
+      className="group relative overflow-hidden rounded-[min(1vw,12px)] bg-riso px-5 py-2.5 text-sm font-medium text-paper transition-transform duration-300 hover:-translate-y-1 hover:shadow-[0_12px_24px_-12px_rgba(0,0,0,0.75)] active:translate-y-0"
     >
       <span className="relative z-10">{label}</span>
       <span
         aria-hidden="true"
-        className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-paper/25 to-transparent transition-transform duration-700 group-hover:translate-x-full"
+        className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-paper/40 to-transparent transition-transform duration-700 group-hover:translate-x-full"
       />
     </button>
   );
@@ -184,7 +184,7 @@ function Wish({ onNext }: { onNext: () => void }) {
             className="absolute -inset-3 rotate-[4deg] rounded-[min(1vw,16px)] bg-riso2/30"
             aria-hidden="true"
           />
-          <div className="sway relative rounded-[min(1vw,14px)] bg-paper2 p-3 pb-10 ring-1 ring-black/5">
+          <div className="sway relative rounded-[min(1vw,14px)] bg-paper2 p-3 pb-10 ring-1 ring-ink/10">
             <img
               src={heroPolaroid}
               alt="The two of us laughing on a summer street"
@@ -238,12 +238,12 @@ function Music({ onNext }: { onNext: () => void }) {
       </p>
 
       <div
-        className="pop mx-auto mt-10 max-w-sm rotate-[-1deg] rounded-[min(1vw,16px)] bg-paper2 p-8 ring-1 ring-black/5"
+        className="pop mx-auto mt-10 max-w-sm rotate-[-1deg] rounded-[min(1vw,16px)] bg-paper2 p-8 ring-1 ring-ink/10"
         style={{ animationDelay: "0.28s" }}
       >
         <div
           className={`relative mx-auto grid size-32 place-items-center rounded-full bg-ink/90 transition-shadow duration-500 ${
-            playing ? "spin-slow shadow-[0_0_0_10px_rgba(0,0,0,0.05)]" : ""
+            playing ? "spin-slow shadow-[0_0_0_10px_rgba(255,120,150,0.12)]" : ""
           }`}
         >
           <div className="grid size-10 place-items-center rounded-full bg-paper">
@@ -313,7 +313,7 @@ function Letter({ onNext }: { onNext: () => void }) {
         <div className="mt-10 text-center">
           <button
             onClick={() => setOpen(true)}
-            className="pop mx-auto block w-full max-w-md rotate-[-1deg] rounded-[min(1vw,16px)] bg-paper2 p-12 ring-1 ring-black/5 transition-all duration-500 hover:rotate-0 hover:-translate-y-1 hover:shadow-[0_20px_40px_-24px_rgba(0,0,0,0.45)]"
+            className="pop mx-auto block w-full max-w-md rotate-[-1deg] rounded-[min(1vw,16px)] bg-paper2 p-12 ring-1 ring-ink/10 transition-all duration-500 hover:rotate-0 hover:-translate-y-1 hover:shadow-[0_20px_40px_-24px_rgba(0,0,0,0.7)]"
             style={{ animationDelay: "0.2s" }}
           >
             <span className="beat block text-5xl text-riso">&#9825;</span>
@@ -321,7 +321,7 @@ function Letter({ onNext }: { onNext: () => void }) {
           </button>
         </div>
       ) : (
-        <div className="pop relative mt-10 rotate-[-0.5deg] rounded-[min(1vw,16px)] bg-paper2 p-8 ring-1 ring-black/5 sm:p-12">
+        <div className="pop relative mt-10 rotate-[-0.5deg] rounded-[min(1vw,16px)] bg-paper2 p-8 ring-1 ring-ink/10 sm:p-12">
           <span className="rise absolute -top-3 left-10 rotate-[-4deg] font-hand text-2xl text-riso">
             to my favorite person,
           </span>
@@ -426,11 +426,11 @@ function Game({ onNext }: { onNext: () => void }) {
               style={{ animationDelay: c.matched ? "0s" : `${i * 0.035}s` }}
             >
               <div className={`flip-inner ${face ? "is-flipped" : ""}`}>
-                <span className="flip-face bg-ink/85 text-transparent ring-1 ring-black/5">
+                <span className="flip-face bg-ink/85 text-transparent ring-1 ring-ink/10">
                   {"\u2661"}
                 </span>
                 <span
-                  className={`flip-face flip-back ring-1 ring-black/5 ${
+                  className={`flip-face flip-back ring-1 ring-ink/10 ${
                     c.matched ? "bg-riso2/40 text-riso" : "bg-paper2 text-ink"
                   }`}
                 >
@@ -488,7 +488,7 @@ function Wall() {
         {wall.map((p, i) => (
           <figure
             key={p.cap}
-            className={`pop group rounded-[min(1vw,14px)] bg-paper2 p-3 pb-8 ring-1 ring-black/5 transition-all duration-500 hover:rotate-0 hover:-translate-y-2 hover:shadow-[0_24px_44px_-28px_rgba(0,0,0,0.55)] ${
+            className={`pop group rounded-[min(1vw,14px)] bg-paper2 p-3 pb-8 ring-1 ring-ink/10 transition-all duration-500 hover:rotate-0 hover:-translate-y-2 hover:shadow-[0_24px_44px_-28px_rgba(0,0,0,0.8)] ${
               i % 2 ? "rotate-[1.5deg]" : "rotate-[-1.5deg]"
             }`}
             style={{ animationDelay: `${0.25 + i * 0.09}s` }}
@@ -519,7 +519,7 @@ function Wall() {
             One last surprise &#9829;
           </button>
         ) : (
-          <div className="pop mx-auto max-w-xl rotate-[-0.5deg] rounded-[min(1vw,16px)] bg-paper2 p-10 ring-1 ring-black/5">
+          <div className="pop mx-auto max-w-xl rotate-[-0.5deg] rounded-[min(1vw,16px)] bg-paper2 p-10 ring-1 ring-ink/10">
             <p className="font-hand text-3xl text-riso">the last surprise</p>
             <p className="mt-4 text-pretty font-display text-2xl leading-[1.4]">
               Saturday. 7pm. Wear the shirt I like. There&rsquo;s a table booked, a playlist ready,
