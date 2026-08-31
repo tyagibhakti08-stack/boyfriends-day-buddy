@@ -68,7 +68,7 @@ function Index() {
         </nav>
       )}
 
-      <div className="relative">
+      <div className="relative" key={step}>
         {step === 0 && <Wish onNext={() => go(1)} />}
         {step === 1 && <Music onNext={() => go(2)} />}
         {step === 2 && <Letter onNext={() => go(3)} />}
@@ -79,22 +79,56 @@ function Index() {
   );
 }
 
+const FLOATERS = [
+  { c: "right-16 top-24 text-3xl text-riso2/50", d: "0s", g: "\u2665" },
+  { c: "left-10 top-[320px] text-2xl text-riso/40", d: "1.6s", g: "\u2665" },
+  { c: "right-24 top-[560px] text-base text-sage/40", d: "3s", g: "\u2661" },
+  { c: "left-1/4 top-[140px] text-xl text-riso/25", d: "2.3s", g: "\u2661" },
+  { c: "right-1/3 top-[820px] text-2xl text-riso2/40", d: "4.1s", g: "\u2665" },
+  { c: "left-16 top-[700px] text-lg text-sage/30", d: "0.8s", g: "\u273F" },
+];
+
 function Hearts() {
   return (
     <div aria-hidden="true" className="pointer-events-none absolute inset-0 select-none">
-      <span className="floaty absolute right-16 top-24 text-3xl text-riso2/50">&#9829;</span>
-      <span
-        className="floaty absolute left-10 top-[320px] text-2xl text-riso/40"
-        style={{ animationDelay: "1.6s" }}
-      >
-        &#9829;
-      </span>
-      <span
-        className="floaty absolute right-24 top-[560px] text-base text-sage/40"
-        style={{ animationDelay: "3s" }}
-      >
-        &#9825;
-      </span>
+      {FLOATERS.map((f) => (
+        <span key={f.c} className={`floaty absolute ${f.c}`} style={{ animationDelay: f.d }}>
+          {f.g}
+        </span>
+      ))}
+    </div>
+  );
+}
+
+function Confetti({ count = 36 }: { count?: number }) {
+  const bits = useRef(
+    Array.from({ length: count }, (_, i) => ({
+      i,
+      left: Math.random() * 100,
+      delay: Math.random() * 1.8,
+      dur: 3 + Math.random() * 2.5,
+      size: 10 + Math.random() * 18,
+      g: ["\u2665", "\u2661", "\u273F", "\u2726"][i % 4] as string,
+      tone: ["text-riso", "text-riso2", "text-sage", "text-ink/50"][i % 4] as string,
+    })),
+  );
+
+  return (
+    <div aria-hidden="true" className="pointer-events-none fixed inset-0 z-50 overflow-hidden">
+      {bits.current.map((b) => (
+        <span
+          key={b.i}
+          className={`confetti absolute top-0 ${b.tone}`}
+          style={{
+            left: `${b.left}%`,
+            fontSize: `${b.size}px`,
+            animationDelay: `${b.delay}s`,
+            animationDuration: `${b.dur}s`,
+          }}
+        >
+          {b.g}
+        </span>
+      ))}
     </div>
   );
 }
@@ -103,9 +137,13 @@ function NextButton({ onClick, label }: { onClick: () => void; label: string }) 
   return (
     <button
       onClick={onClick}
-      className="rounded-[min(1vw,12px)] bg-ink px-5 py-2.5 text-sm font-medium text-paper transition-transform hover:-translate-y-0.5"
+      className="group relative overflow-hidden rounded-[min(1vw,12px)] bg-ink px-5 py-2.5 text-sm font-medium text-paper transition-transform duration-300 hover:-translate-y-1 hover:shadow-[0_12px_24px_-12px_rgba(0,0,0,0.5)] active:translate-y-0"
     >
-      {label}
+      <span className="relative z-10">{label}</span>
+      <span
+        aria-hidden="true"
+        className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-paper/25 to-transparent transition-transform duration-700 group-hover:translate-x-full"
+      />
     </button>
   );
 }
@@ -114,28 +152,39 @@ function Wish({ onNext }: { onNext: () => void }) {
   return (
     <section className="relative mx-auto grid max-w-5xl items-center gap-10 px-6 pb-24 pt-16 lg:grid-cols-12">
       <div className="lg:col-span-7">
-        <p className="mb-5 text-xs uppercase tracking-[0.35em] text-sage">
+        <p className="rise mb-5 text-xs uppercase tracking-[0.35em] text-sage">
           OCTOBER 3 &middot; BOYFRIEND&rsquo;S DAY
         </p>
-        <h1 className="text-balance font-display text-[3.25rem] font-medium leading-[0.95] lg:text-[4.5rem]">
-          Happy Boyfriend&rsquo;s Day, <span className="italic text-riso">my love</span>.
+        <h1
+          className="rise text-balance font-display text-[3.25rem] font-medium leading-[0.95] lg:text-[4.5rem]"
+          style={{ animationDelay: "0.1s" }}
+        >
+          Happy Boyfriend&rsquo;s Day,{" "}
+          <span className="inline-block italic text-riso">my love</span>
+          <span className="beat ml-1 inline-block text-riso2">&#9829;</span>
         </h1>
-        <p className="mt-6 max-w-[42ch] text-pretty text-base text-ink/75">
+        <p
+          className="rise mt-6 max-w-[42ch] text-pretty text-base text-ink/75"
+          style={{ animationDelay: "0.22s" }}
+        >
           I made you something &mdash; five little chapters, one for each way you
           make my days softer.
         </p>
-        <div className="mt-8 flex flex-wrap items-center gap-3">
+        <div
+          className="rise mt-8 flex flex-wrap items-center gap-3"
+          style={{ animationDelay: "0.34s" }}
+        >
           <NextButton onClick={onNext} label="Let's begin your surprise" />
-          <span className="rotate-[2deg] font-hand text-lg text-ink/60">press it, go on</span>
+          <span className="sway font-hand text-lg text-ink/60">press it, go on</span>
         </div>
       </div>
       <div className="lg:col-span-5">
-        <div className="relative">
+        <div className="pop relative" style={{ animationDelay: "0.3s" }}>
           <div
             className="absolute -inset-3 rotate-[4deg] rounded-[min(1vw,16px)] bg-riso2/30"
             aria-hidden="true"
           />
-          <div className="relative rotate-[-2deg] rounded-[min(1vw,14px)] bg-paper2 p-3 pb-10 ring-1 ring-black/5">
+          <div className="sway relative rounded-[min(1vw,14px)] bg-paper2 p-3 pb-10 ring-1 ring-black/5">
             <img
               src={heroPolaroid}
               alt="The two of us laughing on a summer street"
@@ -176,26 +225,50 @@ function Music({ onNext }: { onNext: () => void }) {
 
   return (
     <section className="relative mx-auto max-w-3xl px-6 pb-24 pt-14 text-center">
-      <p className="text-xs uppercase tracking-[0.35em] text-sage">CHAPTER ONE</p>
-      <h2 className="mt-4 text-balance font-display text-4xl font-medium">Our song</h2>
-      <p className="mx-auto mt-4 max-w-[40ch] text-pretty text-ink/75">
+      <p className="rise text-xs uppercase tracking-[0.35em] text-sage">CHAPTER ONE</p>
+      <h2 className="rise mt-4 text-balance font-display text-4xl font-medium" style={{ animationDelay: "0.1s" }}>
+        Our song
+      </h2>
+      <p
+        className="rise mx-auto mt-4 max-w-[40ch] text-pretty text-ink/75"
+        style={{ animationDelay: "0.2s" }}
+      >
         Put it on, let it run underneath the rest of this. It&rsquo;s the one that always sounds
         like you.
       </p>
 
-      <div className="mx-auto mt-10 max-w-sm rotate-[-1deg] rounded-[min(1vw,16px)] bg-paper2 p-8 ring-1 ring-black/5">
+      <div
+        className="pop mx-auto mt-10 max-w-sm rotate-[-1deg] rounded-[min(1vw,16px)] bg-paper2 p-8 ring-1 ring-black/5"
+        style={{ animationDelay: "0.28s" }}
+      >
         <div
-          className={`mx-auto grid size-32 place-items-center rounded-full bg-ink/90 ${
-            playing ? "spin-slow" : ""
+          className={`relative mx-auto grid size-32 place-items-center rounded-full bg-ink/90 transition-shadow duration-500 ${
+            playing ? "spin-slow shadow-[0_0_0_10px_rgba(0,0,0,0.05)]" : ""
           }`}
         >
           <div className="grid size-10 place-items-center rounded-full bg-paper">
             <div className="size-3 rounded-full bg-riso" />
           </div>
         </div>
+
+        <div
+          aria-hidden="true"
+          className={`mt-6 flex h-8 items-end justify-center gap-1.5 transition-opacity duration-500 ${
+            playing ? "opacity-100" : "opacity-25"
+          }`}
+        >
+          {[0, 1, 2, 3, 4, 5, 6].map((i) => (
+            <span
+              key={i}
+              className={`w-1.5 rounded-full bg-riso ${playing ? "eq-bar" : ""}`}
+              style={{ height: "100%", animationDelay: `${i * 0.11}s` }}
+            />
+          ))}
+        </div>
+
         <button
           onClick={toggle}
-          className="mt-7 w-full rounded-[min(1vw,12px)] bg-riso px-5 py-2.5 text-sm font-medium text-paper"
+          className="wiggle mt-6 w-full rounded-[min(1vw,12px)] bg-riso px-5 py-2.5 text-sm font-medium text-paper transition-transform hover:-translate-y-0.5"
         >
           {playing ? "Pause our song" : "Play our song"}
         </button>
@@ -218,12 +291,21 @@ function Music({ onNext }: { onNext: () => void }) {
   );
 }
 
+const LETTER: string[] = [
+  "I don\u2019t say it enough: thank you for the ordinary Tuesday nights, the bad jokes, and the way you make a room feel safer just by walking into it.",
+  "You are the person I want to tell everything to first \u2014 the good news, the silly news, the 3am nothing-news. Loving you has never once felt like work.",
+  "So happy Boyfriend\u2019s Day. Today is just an excuse; I\u2019d have said all of this anyway.",
+];
+
 function Letter({ onNext }: { onNext: () => void }) {
   const [open, setOpen] = useState(false);
   return (
     <section className="relative mx-auto max-w-3xl px-6 pb-24 pt-14">
-      <p className="text-center text-xs uppercase tracking-[0.35em] text-sage">CHAPTER TWO</p>
-      <h2 className="mt-4 text-center text-balance font-display text-4xl font-medium">
+      <p className="rise text-center text-xs uppercase tracking-[0.35em] text-sage">CHAPTER TWO</p>
+      <h2
+        className="rise mt-4 text-center text-balance font-display text-4xl font-medium"
+        style={{ animationDelay: "0.1s" }}
+      >
         A love letter
       </h2>
 
@@ -231,32 +313,31 @@ function Letter({ onNext }: { onNext: () => void }) {
         <div className="mt-10 text-center">
           <button
             onClick={() => setOpen(true)}
-            className="mx-auto block w-full max-w-md rotate-[-1deg] rounded-[min(1vw,16px)] bg-paper2 p-12 ring-1 ring-black/5 transition-transform hover:rotate-0"
+            className="pop mx-auto block w-full max-w-md rotate-[-1deg] rounded-[min(1vw,16px)] bg-paper2 p-12 ring-1 ring-black/5 transition-all duration-500 hover:rotate-0 hover:-translate-y-1 hover:shadow-[0_20px_40px_-24px_rgba(0,0,0,0.45)]"
+            style={{ animationDelay: "0.2s" }}
           >
-            <span className="block text-5xl text-riso">&#9825;</span>
+            <span className="beat block text-5xl text-riso">&#9825;</span>
             <span className="mt-4 block font-hand text-2xl text-ink/70">open me</span>
           </button>
         </div>
       ) : (
-        <div className="relative mt-10 rotate-[-0.5deg] rounded-[min(1vw,16px)] bg-paper2 p-8 ring-1 ring-black/5 sm:p-12">
-          <span className="absolute -top-3 left-10 rotate-[-4deg] font-hand text-2xl text-riso">
+        <div className="pop relative mt-10 rotate-[-0.5deg] rounded-[min(1vw,16px)] bg-paper2 p-8 ring-1 ring-black/5 sm:p-12">
+          <span className="rise absolute -top-3 left-10 rotate-[-4deg] font-hand text-2xl text-riso">
             to my favorite person,
           </span>
           <div className="space-y-5 text-pretty font-display text-xl leading-[1.5] sm:text-2xl">
-            <p>
-              I don&rsquo;t say it enough: thank you for the ordinary Tuesday nights, the bad jokes,
-              and the way you make a room feel safer just by walking into it.
-            </p>
-            <p>
-              You are the person I want to tell everything to first &mdash; the good news, the silly
-              news, the 3am nothing-news. Loving you has never once felt like work.
-            </p>
-            <p>
-              So happy Boyfriend&rsquo;s Day. Today is just an excuse; I&rsquo;d have said all of
-              this anyway.
-            </p>
+            {LETTER.map((line, i) => (
+              <p key={i} className="rise" style={{ animationDelay: `${0.25 + i * 0.35}s` }}>
+                {line}
+              </p>
+            ))}
           </div>
-          <p className="mt-8 text-right font-hand text-2xl text-riso">always, me</p>
+          <p
+            className="rise mt-8 text-right font-hand text-2xl text-riso"
+            style={{ animationDelay: `${0.25 + LETTER.length * 0.35}s` }}
+          >
+            always, me
+          </p>
         </div>
       )}
 
@@ -316,32 +397,52 @@ function Game({ onNext }: { onNext: () => void }) {
 
   return (
     <section className="relative mx-auto max-w-2xl px-6 pb-24 pt-14 text-center">
-      <p className="text-xs uppercase tracking-[0.35em] text-sage">CHAPTER THREE</p>
-      <h2 className="mt-4 text-balance font-display text-4xl font-medium">Match our little things</h2>
-      <p className="mx-auto mt-4 max-w-[40ch] text-pretty text-ink/75">
+      {won && <Confetti />}
+      <p className="rise text-xs uppercase tracking-[0.35em] text-sage">CHAPTER THREE</p>
+      <h2
+        className="rise mt-4 text-balance font-display text-4xl font-medium"
+        style={{ animationDelay: "0.1s" }}
+      >
+        Match our little things
+      </h2>
+      <p
+        className="rise mx-auto mt-4 max-w-[40ch] text-pretty text-ink/75"
+        style={{ animationDelay: "0.2s" }}
+      >
         Six pairs, all of them us. Find them all to unlock the picture wall.
       </p>
 
       <div className="mt-8 grid grid-cols-4 gap-3 sm:gap-4">
-        {cards.map((c) => (
-          <button
-            key={c.id}
-            onClick={() => flip(c.id)}
-            aria-label={c.flipped || c.matched ? `Card ${c.icon}` : "Hidden card"}
-            className={`grid aspect-square place-items-center rounded-[min(1vw,14px)] text-2xl ring-1 ring-black/5 transition-all duration-300 sm:text-3xl ${
-              c.matched
-                ? "bg-riso2/40 text-riso"
-                : c.flipped
-                  ? "bg-paper2 text-ink"
-                  : "bg-ink/85 text-transparent hover:-translate-y-0.5"
-            }`}
-          >
-            {c.flipped || c.matched ? c.icon : "\u2661"}
-          </button>
-        ))}
+        {cards.map((c, i) => {
+          const face = c.flipped || c.matched;
+          return (
+            <button
+              key={c.id}
+              onClick={() => flip(c.id)}
+              aria-label={face ? `Card ${c.icon}` : "Hidden card"}
+              className={`flip-scene pop aspect-square rounded-[min(1vw,14px)] text-2xl transition-transform duration-300 sm:text-3xl ${
+                face ? "" : "hover:-translate-y-1"
+              } ${c.matched ? "beat" : ""}`}
+              style={{ animationDelay: c.matched ? "0s" : `${i * 0.035}s` }}
+            >
+              <div className={`flip-inner ${face ? "is-flipped" : ""}`}>
+                <span className="flip-face bg-ink/85 text-transparent ring-1 ring-black/5">
+                  {"\u2661"}
+                </span>
+                <span
+                  className={`flip-face flip-back ring-1 ring-black/5 ${
+                    c.matched ? "bg-riso2/40 text-riso" : "bg-paper2 text-ink"
+                  }`}
+                >
+                  {c.icon}
+                </span>
+              </div>
+            </button>
+          );
+        })}
       </div>
 
-      <p className="mt-5 font-hand text-lg text-ink/60">
+      <p className={`mt-5 font-hand text-lg text-ink/60 ${won ? "pop text-riso" : ""}`}>
         {won ? `all found in ${moves} moves \u2014 of course you did` : `moves: ${moves}`}
       </p>
 
@@ -352,7 +453,7 @@ function Game({ onNext }: { onNext: () => void }) {
             setPicks([]);
             setMoves(0);
           }}
-          className="rounded-[min(1vw,12px)] border border-ink/15 px-5 py-2.5 text-sm font-medium text-ink/70"
+          className="rounded-[min(1vw,12px)] border border-ink/15 px-5 py-2.5 text-sm font-medium text-ink/70 transition-all hover:-translate-y-0.5 hover:border-ink/30"
         >
           Shuffle again
         </button>
@@ -366,10 +467,19 @@ function Wall() {
   const [revealed, setRevealed] = useState(false);
   return (
     <section className="relative mx-auto max-w-5xl px-6 pb-24 pt-14">
+      {revealed && <Confetti count={60} />}
       <div className="text-center">
-        <p className="text-xs uppercase tracking-[0.35em] text-sage">CHAPTER FOUR</p>
-        <h2 className="mt-4 text-balance font-display text-4xl font-medium">Our picture wall</h2>
-        <p className="mx-auto mt-4 max-w-[42ch] text-pretty text-ink/75">
+        <p className="rise text-xs uppercase tracking-[0.35em] text-sage">CHAPTER FOUR</p>
+        <h2
+          className="rise mt-4 text-balance font-display text-4xl font-medium"
+          style={{ animationDelay: "0.1s" }}
+        >
+          Our picture wall
+        </h2>
+        <p
+          className="rise mx-auto mt-4 max-w-[42ch] text-pretty text-ink/75"
+          style={{ animationDelay: "0.2s" }}
+        >
           Every one of these started as an ordinary day. Then you were in it.
         </p>
       </div>
@@ -378,18 +488,21 @@ function Wall() {
         {wall.map((p, i) => (
           <figure
             key={p.cap}
-            className={`rounded-[min(1vw,14px)] bg-paper2 p-3 pb-8 ring-1 ring-black/5 transition-transform duration-300 hover:rotate-0 ${
+            className={`pop group rounded-[min(1vw,14px)] bg-paper2 p-3 pb-8 ring-1 ring-black/5 transition-all duration-500 hover:rotate-0 hover:-translate-y-2 hover:shadow-[0_24px_44px_-28px_rgba(0,0,0,0.55)] ${
               i % 2 ? "rotate-[1.5deg]" : "rotate-[-1.5deg]"
             }`}
+            style={{ animationDelay: `${0.25 + i * 0.09}s` }}
           >
-            <img
-              src={p.src}
-              alt={p.alt}
-              loading="lazy"
-              width={768}
-              height={768}
-              className="aspect-square w-full rounded-[min(1vw,10px)] object-cover"
-            />
+            <div className="overflow-hidden rounded-[min(1vw,10px)]">
+              <img
+                src={p.src}
+                alt={p.alt}
+                loading="lazy"
+                width={768}
+                height={768}
+                className="aspect-square w-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+            </div>
             <figcaption className="mt-3 text-center font-hand text-xl text-ink/70">
               {p.cap}
             </figcaption>
@@ -401,12 +514,12 @@ function Wall() {
         {!revealed ? (
           <button
             onClick={() => setRevealed(true)}
-            className="rounded-[min(1vw,12px)] bg-riso px-6 py-3 text-sm font-medium text-paper transition-transform hover:-translate-y-0.5"
+            className="beat rounded-[min(1vw,12px)] bg-riso px-6 py-3 text-sm font-medium text-paper transition-transform hover:-translate-y-1"
           >
             One last surprise &#9829;
           </button>
         ) : (
-          <div className="mx-auto max-w-xl rotate-[-0.5deg] rounded-[min(1vw,16px)] bg-paper2 p-10 ring-1 ring-black/5">
+          <div className="pop mx-auto max-w-xl rotate-[-0.5deg] rounded-[min(1vw,16px)] bg-paper2 p-10 ring-1 ring-black/5">
             <p className="font-hand text-3xl text-riso">the last surprise</p>
             <p className="mt-4 text-pretty font-display text-2xl leading-[1.4]">
               Saturday. 7pm. Wear the shirt I like. There&rsquo;s a table booked, a playlist ready,
