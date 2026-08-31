@@ -291,6 +291,12 @@ function Music({ onNext }: { onNext: () => void }) {
   );
 }
 
+const LETTER: string[] = [
+  "I don\u2019t say it enough: thank you for the ordinary Tuesday nights, the bad jokes, and the way you make a room feel safer just by walking into it.",
+  "You are the person I want to tell everything to first \u2014 the good news, the silly news, the 3am nothing-news. Loving you has never once felt like work.",
+  "So happy Boyfriend\u2019s Day. Today is just an excuse; I\u2019d have said all of this anyway.",
+];
+
 function Letter({ onNext }: { onNext: () => void }) {
   const [open, setOpen] = useState(false);
   return (
