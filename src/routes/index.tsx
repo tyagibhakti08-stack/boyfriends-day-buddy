@@ -467,10 +467,19 @@ function Wall() {
   const [revealed, setRevealed] = useState(false);
   return (
     <section className="relative mx-auto max-w-5xl px-6 pb-24 pt-14">
+      {revealed && <Confetti count={60} />}
       <div className="text-center">
-        <p className="text-xs uppercase tracking-[0.35em] text-sage">CHAPTER FOUR</p>
-        <h2 className="mt-4 text-balance font-display text-4xl font-medium">Our picture wall</h2>
-        <p className="mx-auto mt-4 max-w-[42ch] text-pretty text-ink/75">
+        <p className="rise text-xs uppercase tracking-[0.35em] text-sage">CHAPTER FOUR</p>
+        <h2
+          className="rise mt-4 text-balance font-display text-4xl font-medium"
+          style={{ animationDelay: "0.1s" }}
+        >
+          Our picture wall
+        </h2>
+        <p
+          className="rise mx-auto mt-4 max-w-[42ch] text-pretty text-ink/75"
+          style={{ animationDelay: "0.2s" }}
+        >
           Every one of these started as an ordinary day. Then you were in it.
         </p>
       </div>
@@ -479,18 +488,21 @@ function Wall() {
         {wall.map((p, i) => (
           <figure
             key={p.cap}
-            className={`rounded-[min(1vw,14px)] bg-paper2 p-3 pb-8 ring-1 ring-black/5 transition-transform duration-300 hover:rotate-0 ${
+            className={`pop group rounded-[min(1vw,14px)] bg-paper2 p-3 pb-8 ring-1 ring-black/5 transition-all duration-500 hover:rotate-0 hover:-translate-y-2 hover:shadow-[0_24px_44px_-28px_rgba(0,0,0,0.55)] ${
               i % 2 ? "rotate-[1.5deg]" : "rotate-[-1.5deg]"
             }`}
+            style={{ animationDelay: `${0.25 + i * 0.09}s` }}
           >
-            <img
-              src={p.src}
-              alt={p.alt}
-              loading="lazy"
-              width={768}
-              height={768}
-              className="aspect-square w-full rounded-[min(1vw,10px)] object-cover"
-            />
+            <div className="overflow-hidden rounded-[min(1vw,10px)]">
+              <img
+                src={p.src}
+                alt={p.alt}
+                loading="lazy"
+                width={768}
+                height={768}
+                className="aspect-square w-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+            </div>
             <figcaption className="mt-3 text-center font-hand text-xl text-ink/70">
               {p.cap}
             </figcaption>
@@ -502,12 +514,12 @@ function Wall() {
         {!revealed ? (
           <button
             onClick={() => setRevealed(true)}
-            className="rounded-[min(1vw,12px)] bg-riso px-6 py-3 text-sm font-medium text-paper transition-transform hover:-translate-y-0.5"
+            className="beat rounded-[min(1vw,12px)] bg-riso px-6 py-3 text-sm font-medium text-paper transition-transform hover:-translate-y-1"
           >
             One last surprise &#9829;
           </button>
         ) : (
-          <div className="mx-auto max-w-xl rotate-[-0.5deg] rounded-[min(1vw,16px)] bg-paper2 p-10 ring-1 ring-black/5">
+          <div className="pop mx-auto max-w-xl rotate-[-0.5deg] rounded-[min(1vw,16px)] bg-paper2 p-10 ring-1 ring-black/5">
             <p className="font-hand text-3xl text-riso">the last surprise</p>
             <p className="mt-4 text-pretty font-display text-2xl leading-[1.4]">
               Saturday. 7pm. Wear the shirt I like. There&rsquo;s a table booked, a playlist ready,
