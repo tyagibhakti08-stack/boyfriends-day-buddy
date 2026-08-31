@@ -152,28 +152,39 @@ function Wish({ onNext }: { onNext: () => void }) {
   return (
     <section className="relative mx-auto grid max-w-5xl items-center gap-10 px-6 pb-24 pt-16 lg:grid-cols-12">
       <div className="lg:col-span-7">
-        <p className="mb-5 text-xs uppercase tracking-[0.35em] text-sage">
+        <p className="rise mb-5 text-xs uppercase tracking-[0.35em] text-sage">
           OCTOBER 3 &middot; BOYFRIEND&rsquo;S DAY
         </p>
-        <h1 className="text-balance font-display text-[3.25rem] font-medium leading-[0.95] lg:text-[4.5rem]">
-          Happy Boyfriend&rsquo;s Day, <span className="italic text-riso">my love</span>.
+        <h1
+          className="rise text-balance font-display text-[3.25rem] font-medium leading-[0.95] lg:text-[4.5rem]"
+          style={{ animationDelay: "0.1s" }}
+        >
+          Happy Boyfriend&rsquo;s Day,{" "}
+          <span className="inline-block italic text-riso">my love</span>
+          <span className="beat ml-1 inline-block text-riso2">&#9829;</span>
         </h1>
-        <p className="mt-6 max-w-[42ch] text-pretty text-base text-ink/75">
+        <p
+          className="rise mt-6 max-w-[42ch] text-pretty text-base text-ink/75"
+          style={{ animationDelay: "0.22s" }}
+        >
           I made you something &mdash; five little chapters, one for each way you
           make my days softer.
         </p>
-        <div className="mt-8 flex flex-wrap items-center gap-3">
+        <div
+          className="rise mt-8 flex flex-wrap items-center gap-3"
+          style={{ animationDelay: "0.34s" }}
+        >
           <NextButton onClick={onNext} label="Let's begin your surprise" />
-          <span className="rotate-[2deg] font-hand text-lg text-ink/60">press it, go on</span>
+          <span className="sway font-hand text-lg text-ink/60">press it, go on</span>
         </div>
       </div>
       <div className="lg:col-span-5">
-        <div className="relative">
+        <div className="pop relative" style={{ animationDelay: "0.3s" }}>
           <div
             className="absolute -inset-3 rotate-[4deg] rounded-[min(1vw,16px)] bg-riso2/30"
             aria-hidden="true"
           />
-          <div className="relative rotate-[-2deg] rounded-[min(1vw,14px)] bg-paper2 p-3 pb-10 ring-1 ring-black/5">
+          <div className="sway relative rounded-[min(1vw,14px)] bg-paper2 p-3 pb-10 ring-1 ring-black/5">
             <img
               src={heroPolaroid}
               alt="The two of us laughing on a summer street"
