@@ -393,7 +393,7 @@ function Report() {
       <h2 className="mt-3 font-display text-3xl sm:text-5xl">The Official Boyfriend Report</h2>
 
       <div className={`${glass} relative mt-10 p-6 sm:p-10`}>
-        <div className="stamp pointer-events-none absolute -right-2 top-6 rotate-[14deg] rounded-md border-2 border-destructive/70 px-4 py-2 font-display text-sm tracking-[0.3em] text-destructive/80 sm:right-8">
+        <div className="stamp pointer-events-none absolute -top-5 right-6 rotate-[14deg] bg-background/80 rounded-md border-2 border-destructive/70 px-4 py-2 font-display text-sm tracking-[0.3em] text-destructive/80 sm:right-8">
           TOP SECRET
         </div>
 
