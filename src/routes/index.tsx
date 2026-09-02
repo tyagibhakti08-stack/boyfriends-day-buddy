@@ -30,7 +30,7 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const NAME = "[NAME]";
+const NAME = "Vaibavvv";
 const FUNNY_SKILL = "[FUNNY SKILL]";
 const FUNNY_WEAKNESS = "[FUNNY WEAKNESS]";
 
@@ -342,7 +342,7 @@ function Landing({ onStart }: { onStart: () => void }) {
         className="rise mt-6 font-display text-4xl leading-[1.05] sm:text-7xl md:text-8xl"
         style={{ animationDelay: "0.15s" }}
       >
-        ATTENTION,
+        ATTENTION!!
         <span className="block bg-gradient-to-r from-accent via-glow to-accent bg-clip-text text-transparent">
           {NAME}
         </span>
