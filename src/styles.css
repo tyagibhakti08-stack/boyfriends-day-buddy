@@ -19,16 +19,12 @@
  */
 
 @theme {
-  --color-paper: oklch(0.17 0.036 350);
-  --color-paper2: oklch(0.235 0.048 351);
-  --color-ink: oklch(0.945 0.021 60);
-  --color-riso: oklch(0.68 0.175 12);
-  --color-riso2: oklch(0.79 0.118 55);
-  --color-sage: oklch(0.66 0.062 330);
-  --font-display: "Fraunces", serif;
-  --font-hand: "Caveat", cursive;
-  --font-body: "Karla", sans-serif;
+  --color-glow: oklch(0.72 0.13 300);
+  --font-display: "Playfair Display", serif;
+  --font-body: "Inter", sans-serif;
+  --font-sans: "Inter", sans-serif;
 }
+
 
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
