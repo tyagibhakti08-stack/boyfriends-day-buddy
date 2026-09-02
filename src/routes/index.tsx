@@ -47,11 +47,12 @@ const memories: Memory[] = [
   {
     src: heroPolaroid,
     alt: "[PHOTO 1] — the two of us laughing on a summer street",
-    title: "[MEMORY]",
+    title: "CANTEEN",
     date: "The day it started",
-    caption: "You laughed before I finished the joke.",
+    caption:
+      "a small tiny place usually filled with students, never knew this would be the beginning of our story :D.. The girl who prioritized her snacks more than anyone actually skipped her snacks some days to only talk few more mins with her crush and it was WORTH IT!!",
     story:
-      "I remember thinking this is going to be a problem, in the best possible way. I went home and told everyone about you.",
+      '( ig god did smile while looking down saying " finally these idiots met ")',
   },
   {
     src: memoryCoffee,
