@@ -336,3 +336,42 @@
     animation: none !important;
   }
 }
+
+/* --- archive theme utilities --- */
+body {
+  font-family: var(--font-body);
+}
+
+.drift {
+  animation-name: drift;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  opacity: 0.6;
+}
+@keyframes drift {
+  0% { transform: translate3d(0, 0, 0); opacity: 0; }
+  10% { opacity: 0.7; }
+  90% { opacity: 0.5; }
+  100% { transform: translate3d(24px, -120px, 0); opacity: 0; }
+}
+
+.sway-slow {
+  animation: sway-slow 9s ease-in-out infinite;
+}
+@keyframes sway-slow {
+  0%, 100% { transform: translateY(0) rotate(-0.6deg); }
+  50% { transform: translateY(-7px) rotate(0.7deg); }
+}
+
+.stamp {
+  animation: stamp 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.4s both;
+}
+@keyframes stamp {
+  0% { opacity: 0; transform: rotate(14deg) scale(2.4); }
+  70% { opacity: 1; transform: rotate(14deg) scale(0.95); }
+  100% { opacity: 1; transform: rotate(14deg) scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .drift, .sway-slow, .stamp { animation: none !important; }
+}
