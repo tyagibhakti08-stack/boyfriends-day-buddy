@@ -31,8 +31,8 @@ export const Route = createFileRoute("/")({
 });
 
 const NAME = "Vaibavvv";
-const FUNNY_SKILL = "[FUNNY SKILL]";
-const FUNNY_WEAKNESS = "[FUNNY WEAKNESS]";
+const FUNNY_SKILL = "ragebaiting ToT";
+const FUNNY_WEAKNESS = "my eyes and lips :P";
 
 type Memory = {
   src: string;
@@ -369,17 +369,17 @@ function Report() {
   const { ref, shown } = useReveal<HTMLElement>();
   const rows = [
     ["Name", NAME],
-    ["Position", "Boyfriend"],
-    ["Department", "Making Life Better"],
+    ["Position", "MY Boyfriend"],
+    ["Department", "Making my Life Better :D"],
     ["Status", "ACTIVE"],
     ["Special Skill", FUNNY_SKILL],
     ["Biggest Weakness", FUNNY_WEAKNESS],
   ];
   const bars = [
-    ["Overall performance", 99.9],
+    ["Overall performance", 100],
     ["Hug quality", 100],
-    ["Reply speed", 74],
-    ["Snack sharing", 41],
+    ["Reply speed", 80],
+    ["Snack sharing", 70],
   ] as const;
 
   return (
