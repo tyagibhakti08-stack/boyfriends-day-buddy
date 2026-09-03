@@ -57,11 +57,12 @@ const memories: Memory[] = [
   {
     src: memoryCoffee,
     alt: "[PHOTO 2] — two coffees on a rainy cafe table",
-    title: "Rain, two cups",
-    date: "A Tuesday, badly planned",
-    caption: "We stayed until they stacked the chairs.",
-    story:
-      "Nothing happened that day. That is exactly why I keep it. Just you, terrible weather, and three hours that felt like twenty minutes.",
+     title: "Rain, us and the umbrella",
+     date: "THE RAINY DAY WE WOULD ALWAYS BE REMINDED OF",
+     caption:
+       "the day where every droplet saw us nervous together under the umbrella. The tiny lil gap inbetween us, getting nervous whenever we looked at each others face and lets not forget our first hug :D",
+     story:
+       "( js like tht day if i hv to spend my entire lifetime holding tht umbrella with u beside me, I'll happily do it even if my arms are sore )",
   },
   {
     src: memoryRoadtrip,
