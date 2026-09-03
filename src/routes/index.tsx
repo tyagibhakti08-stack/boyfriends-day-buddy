@@ -30,7 +30,7 @@ export const Route = createFileRoute("/")({
       {
         property: "og:description",
         content:
-          "An interactive Boyfriend's Day experience — report card, memory vault, badges, quiz and a cinematic final reveal.",
+          "An interactive Boyfriend's Day experience — report card, memory vault, badges, would-you-rather and a cinematic final reveal.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -132,33 +132,48 @@ const badges = [
   { icon: "💯", name: "10/10 Human", note: "The world's best human badge goes to my baby. Would recommend. Will NOT share." },
 ];
 
-type Question = { q: string; options: string[]; answer: number };
+type Rather = { q: string; options: { label: string; reply: string }[] };
 
-const quiz: Question[] = [
+const rathers: Rather[] = [
   {
-    q: "What is the fastest way to ruin my mood?",
-    options: ["Being late for our hangout", "not replying my text for hours", "u saying tht ur gay for ur pookies", "ragebaiting me "],
-    answer: 2,
+    q: "Would you rather…",
+    options: [
+      { label: "spend a whole rainy day under one umbrella with me", reply: "correct answer. my arms are already sore and i don't care." },
+      { label: "stay up till 3am talking about nothing", reply: "sleep bhakti -_- ... nopee :P" },
+      { label: "have a canteen date every single day", reply: "snacks skipped, crush talked to. worth it." },
+    ],
   },
   {
-    q: "My comfort order, no thinking:",
-    options: ["Fries and a milkshake", "Instant noodles", "Something spicy", "Ice cream at midnight"],
-    answer: 3,
+    q: "Would you rather…",
+    options: [
+      { label: "get ragebaited by me forever", reply: "professional ragebaiter meeting his final boss." },
+      { label: "never be teased again", reply: "boring. you'd miss it in two days." },
+      { label: "tease me back twice as hard", reply: "we both know you'd lose ToT" },
+    ],
   },
   {
-    q: "What do I actually want when I say 'I'm fine'?",
-    options: ["Space", "A hug and zero questions", "Food", "Advice"],
-    answer: 1,
+    q: "Would you rather…",
+    options: [
+      { label: "take 100 candid pics of me", reply: "storage full, heart fuller." },
+      { label: "let me take 100 candid pics of you", reply: "MY FAV MODEL. no notes." },
+      { label: "one perfect selfie together", reply: "already have it. still my fav pic of us." },
+    ],
   },
   {
-    q: "The thing I secretly love that you do:",
-    options: ["Texting first", "Remembering tiny details", "Winning arguments", "Driving fast"],
-    answer: 1,
+    q: "Would you rather…",
+    options: [
+      { label: "hug me for 10 minutes straight", reply: "the first hug under that umbrella says hi." },
+      { label: "hold my hand the whole hangout", reply: "shy in the park but you'd still do it :D" },
+      { label: "lie on my shoulder in silence", reply: "the calmest thing in my life honestly." },
+    ],
   },
   {
-    q: "If we had one free day, I would pick:",
-    options: ["Doing absolutely nothing with you", "A big trip", "A party", "Shopping"],
-    answer: 0,
+    q: "Would you rather…",
+    options: [
+      { label: "relive our first hangout", reply: "sweating, dogs, you losing every game. perfect." },
+      { label: "get a brand new memory tomorrow", reply: "greedy. i love that for us." },
+      { label: "do absolutely nothing together", reply: "my comfort home. always u vaibav." },
+    ],
   },
 ];
 
@@ -592,20 +607,17 @@ function Badges() {
 function Game() {
   const [i, setI] = useState(0);
   const [picked, setPicked] = useState<number | null>(null);
-  const [score, setScore] = useState(0);
   const [done, setDone] = useState(false);
 
-  const q = quiz[i]!;
-  const correct = picked !== null && picked === q.answer;
+  const q = rathers[i]!;
 
   const pick = (n: number) => {
     if (picked !== null) return;
     setPicked(n);
-    if (n === q.answer) setScore((s) => s + 1);
   };
 
   const next = () => {
-    if (i + 1 >= quiz.length) {
+    if (i + 1 >= rathers.length) {
       setDone(true);
       return;
     }
@@ -616,32 +628,24 @@ function Game() {
   const restart = () => {
     setI(0);
     setPicked(null);
-    setScore(0);
     setDone(false);
   };
 
-  const verdict =
-    score >= 5
-      ? "Flawless. Genuinely suspicious. You have been paying attention this whole time."
-      : score >= 3
-        ? "Solid. You know the important parts and guessed the rest with confidence."
-        : "We are going to fix this over dinner. I'll bring flashcards.";
-
   return (
-    <Section id="game" eyebrow="File 04" title="How Well Do You Know Me?">
+    <Section id="game" eyebrow="File 04" title="Would You Rather?">
       <div className={`${glass} p-6 sm:p-10`}>
         {!done ? (
           <div key={i} className="rise">
             <div className="flex items-center justify-between text-xs uppercase tracking-[0.25em] text-muted-foreground">
               <span>
-                Question {i + 1} / {quiz.length}
+                Round {i + 1} / {rathers.length}
               </span>
-              <span className="text-accent">Score {score}</span>
+              <span className="text-accent">no wrong answers</span>
             </div>
             <div className="mt-3 h-1 overflow-hidden rounded-full bg-white/8">
               <div
                 className="h-full rounded-full bg-accent transition-all duration-500"
-                style={{ width: `${((i + (picked !== null ? 1 : 0)) / quiz.length) * 100}%` }}
+                style={{ width: `${((i + (picked !== null ? 1 : 0)) / rathers.length) * 100}%` }}
               />
             </div>
 
@@ -651,18 +655,16 @@ function Game() {
                 const state =
                   picked === null
                     ? "border-white/10 hover:border-accent/50 hover:bg-white/[0.06]"
-                    : n === q.answer
+                    : n === picked
                       ? "border-accent/60 bg-accent/12"
-                      : n === picked
-                        ? "border-destructive/50 bg-destructive/10"
-                        : "border-white/8 opacity-50";
+                      : "border-white/8 opacity-50";
                 return (
                   <button
-                    key={o}
+                    key={o.label}
                     onClick={() => pick(n)}
                     className={`rounded-2xl border px-5 py-4 text-left text-sm transition-all duration-300 ${state}`}
                   >
-                    {o}
+                    {o.label}
                   </button>
                 );
               })}
@@ -670,24 +672,22 @@ function Game() {
 
             {picked !== null && (
               <div className="pop mt-7 flex flex-wrap items-center justify-between gap-4">
-                <p className={`font-display text-lg ${correct ? "text-accent" : "text-destructive"}`}>
-                  {correct ? "OKAYYY, YOU ACTUALLY KNOW ME!!" : "Bro… we need to talk."}
-                </p>
+                <p className="font-display text-lg text-accent">{q.options[picked]!.reply}</p>
                 <GlowButton onClick={next}>
-                  {i + 1 >= quiz.length ? "See my verdict →" : "Next question →"}
+                  {i + 1 >= rathers.length ? "See my verdict →" : "Next one →"}
                 </GlowButton>
               </div>
             )}
           </div>
         ) : (
           <div className="pop text-center">
-            <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">Final score</p>
-            <p className="mt-3 font-display text-6xl text-accent">
-              {score}/{quiz.length}
+            <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">Verdict</p>
+            <p className="mt-3 font-display text-4xl text-accent sm:text-5xl">whatever you picked, i'd pick you</p>
+            <p className="mx-auto mt-5 max-w-md text-sm text-muted-foreground">
+              every option had you in it, so honestly i was winning either way.
             </p>
-            <p className="mx-auto mt-5 max-w-md text-sm text-muted-foreground">{verdict}</p>
             <div className="mt-8 flex justify-center">
-              <GlowButton onClick={restart}>Try again ↻</GlowButton>
+              <GlowButton onClick={restart}>Play again ↻</GlowButton>
             </div>
           </div>
         )}
