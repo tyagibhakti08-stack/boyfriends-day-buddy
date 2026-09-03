@@ -2,6 +2,11 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useMemo, useRef, useState } from "react";
 
 import heroPolaroid from "@/assets/hero-polaroid.jpg";
+import flowerAsset from "@/assets/flower.jpg.asset.json";
+import canteenAsset from "@/assets/canteen.jpg.asset.json";
+import rainAsset from "@/assets/rain.jpg.asset.json";
+import blehAsset from "@/assets/bleh.jpg.asset.json";
+import pookieAsset from "@/assets/pookie.jpg.asset.json";
 import memoryCoffee from "@/assets/memory-coffee.jpg";
 import memoryRoadtrip from "@/assets/memory-roadtrip.jpg";
 import memoryIcecream from "@/assets/memory-icecream.jpg";
@@ -55,8 +60,8 @@ type Memory = {
 
 const memories: Memory[] = [
   {
-    src: heroPolaroid,
-    alt: "[PHOTO 1] — the two of us laughing on a summer street",
+    src: canteenAsset.url,
+    alt: "The school canteen where our story began",
     title: "CANTEEN",
     date: "The day it started",
     caption:
@@ -65,8 +70,8 @@ const memories: Memory[] = [
       '( ig god did smile while looking down saying " finally these idiots met ")',
   },
   {
-    src: memoryCoffee,
-    alt: "[PHOTO 2] — two coffees on a rainy cafe table",
+    src: rainAsset.url,
+    alt: "The two of us under one umbrella in the rain",
      title: "Rain, us and the umbrella",
      date: "THE RAINY DAY WE WOULD ALWAYS BE REMINDED OF",
      caption:
@@ -84,8 +89,8 @@ const memories: Memory[] = [
       "( to actually think of, I've never stayed up late at night just to chat with someone but as they say love makes u do crazy things. chatting with someone till 1 is crazy for me btw ToT)",
   },
   {
-    src: memoryIcecream,
-    alt: "Two ice cream cones held up on a sunny street",
+    src: blehAsset.url,
+    alt: "Our first ever selfie together",
      title: "our first ever selfie together",
      date: "BLEHHHH :P",
      caption:
@@ -94,8 +99,8 @@ const memories: Memory[] = [
        "( ik after that hangout some things didn't go well, but hey its not your fault in fact its no ones so prettyyyy pleaseee don't hate yourself vaibav and don't be so hard on yourself )",
   },
   {
-    src: memoryDance,
-    alt: "Two silhouettes dancing under fairy lights",
+    src: flowerAsset.url,
+    alt: "Flowers tucked into his curly hair",
     title: "my vaibav can never say \"no\" to my ideas ",
     date: "MY FAV MODEL",
     caption: "even tho you were shy to do it as we were in a park, you still did it for me :D i loveeee youuu sooo muchhhh.. You will always be my no.1 fav model...in future i want to take manyyy candid pics of u until my storage begs me to stop.",
@@ -103,8 +108,8 @@ const memories: Memory[] = [
       "(its was our longest hangout yet felt the shortest?)",
   },
   {
-    src: memoryPicnic,
-    alt: "A picnic blanket with flowers and a guitar",
+    src: pookieAsset.url,
+    alt: "My favourite selfie of the two of us at the park",
     title: "my fav pic of us",
     date: "MY POOKIE",
     caption:
