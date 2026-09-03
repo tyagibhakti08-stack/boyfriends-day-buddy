@@ -34,6 +34,16 @@ const NAME = "Vaibavvv";
 const FUNNY_SKILL = "ragebaiting ToT";
 const FUNNY_WEAKNESS = "my eyes and lips :P";
 
+const letterPolaroids: { src: string; alt: string; title: string; note: string }[] = [
+  { src: heroPolaroid, alt: "[PHOTO 1]", title: "[MOMENT 1]", note: "[Write a few lines about this photo.]" },
+  { src: memoryCoffee, alt: "[PHOTO 2]", title: "[MOMENT 2]", note: "[Write a few lines about this photo.]" },
+  { src: memoryRoadtrip, alt: "[PHOTO 3]", title: "[MOMENT 3]", note: "[Write a few lines about this photo.]" },
+  { src: memoryIcecream, alt: "[PHOTO 4]", title: "[MOMENT 4]", note: "[Write a few lines about this photo.]" },
+  { src: memoryDance, alt: "[PHOTO 5]", title: "[MOMENT 5]", note: "[Write a few lines about this photo.]" },
+  { src: memoryPicnic, alt: "[PHOTO 6]", title: "[MOMENT 6]", note: "[Write a few lines about this photo.]" },
+];
+
+
 type Memory = {
   src: string;
   alt: string;
@@ -760,15 +770,51 @@ function Finale({ onReplay }: { onReplay: () => void }) {
             <GlowButton onClick={() => setRevealed(true)}>Open the last thing →</GlowButton>
           </div>
         ) : (
-          <div className="pop mt-10">
+          <div className="pop mt-10 w-full">
             <p className={`${glass} mx-auto max-w-xl p-8 font-display text-xl leading-relaxed sm:text-2xl`}>
               Out of everyone in the world, I'm really glad I get to call you my boyfriend.
             </p>
-            <div className="mt-10">
+
+            <div className={`${glass} mx-auto mt-12 max-w-4xl p-6 text-left sm:p-10`}>
+              <p className="text-[0.7rem] uppercase tracking-[0.45em] text-accent">One last letter</p>
+              <h3 className="mt-4 font-display text-3xl sm:text-4xl">My dearest {NAME},</h3>
+              <p className="mt-5 text-sm leading-relaxed text-muted-foreground sm:text-base">
+                [LETTER OPENING — write a few lines here about how this year felt with him.]
+              </p>
+
+              <div className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2">
+                {letterPolaroids.map((p, i) => (
+                  <figure
+                    key={i}
+                    className="group rounded-2xl bg-foreground/[0.06] p-3 shadow-xl ring-1 ring-foreground/10 transition-transform duration-500 hover:-translate-y-1"
+                    style={{ transform: `rotate(${i % 2 === 0 ? -1.6 : 1.6}deg)` }}
+                  >
+                    <img
+                      src={p.src}
+                      alt={p.alt}
+                      loading="lazy"
+                      className="aspect-[4/3] w-full rounded-xl object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                    />
+                    <figcaption className="px-2 pb-1 pt-4">
+                      <p className="font-display text-lg">{p.title}</p>
+                      <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{p.note}</p>
+                    </figcaption>
+                  </figure>
+                ))}
+              </div>
+
+              <p className="mt-10 text-sm leading-relaxed text-muted-foreground sm:text-base">
+                [LETTER CLOSING — a few final lines, then sign off.]
+              </p>
+              <p className="mt-6 font-display text-xl text-accent">Always yours, Bhakti</p>
+            </div>
+
+            <div className="mt-12">
               <GlowButton onClick={onReplay}>REPLAY THE WHOLE THING ↻</GlowButton>
             </div>
           </div>
         )}
+
       </div>
     </section>
   );
