@@ -206,6 +206,7 @@ function Index() {
       ) : (
         <main className="relative z-10">
           <Report />
+          <RecordPlayer />
           <Vault />
           <Badges />
           <Game />
@@ -470,6 +471,125 @@ function Report() {
         </p>
       </div>
     </section>
+  );
+}
+
+/* ---------------- 2.5 record player ---------------- */
+
+const tracks: { title: string; note: string; src: string }[] = [
+  { title: "our song", note: "the one that always plays in my head", src: "/music/track-1.mp3" },
+  { title: "late night convos", note: "for 1am, when neither of us sleeps", src: "/music/track-2.mp3" },
+  { title: "rainy day", note: "one umbrella, two idiots", src: "/music/track-3.mp3" },
+];
+
+function RecordPlayer() {
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const [current, setCurrent] = useState(0);
+  const [playing, setPlaying] = useState(false);
+
+  const play = (i: number) => {
+    const a = audioRef.current;
+    if (!a) return;
+    if (i !== current) {
+      setCurrent(i);
+      a.src = tracks[i]!.src;
+    }
+    void a.play().then(
+      () => setPlaying(true),
+      () => setPlaying(false),
+    );
+  };
+
+  const toggle = () => {
+    const a = audioRef.current;
+    if (!a) return;
+    if (playing) {
+      a.pause();
+      setPlaying(false);
+    } else {
+      play(current);
+    }
+  };
+
+  const skip = () => play((current + 1) % tracks.length);
+
+  return (
+    <Section id="record" eyebrow="File 01.5" title="Press Play, Then Enter">
+      <p className="-mt-6 mb-8 max-w-lg text-sm text-muted-foreground">
+        Every archive needs a soundtrack. Spin the record before you open the vault.
+      </p>
+
+      <div className={`${glass} flex flex-col items-center gap-10 p-8 sm:flex-row sm:items-center sm:p-10`}>
+        <audio
+          ref={audioRef}
+          src={tracks[0]!.src}
+          preload="none"
+          onEnded={skip}
+        />
+
+        <div className="relative shrink-0">
+          <div
+            className="relative h-52 w-52 rounded-full bg-[radial-gradient(circle_at_center,#181820_0%,#0b0b10_38%,#15151c_39%,#0a0a0e_100%)] shadow-[0_30px_70px_-30px_rgba(0,0,0,1)]"
+            style={{
+              animation: playing ? "spin-slow 4.5s linear infinite" : undefined,
+            }}
+          >
+            {[0.9, 0.76, 0.62].map((r) => (
+              <span
+                key={r}
+                className="absolute rounded-full border border-white/[0.07]"
+                style={{
+                  inset: `${((1 - r) / 2) * 100}%`,
+                }}
+              />
+            ))}
+            <span className="absolute inset-[32%] rounded-full bg-accent/85 shadow-[0_0_40px_-6px_hsl(var(--accent)/0.6)]" />
+            <span className="absolute inset-[47%] rounded-full bg-background" />
+          </div>
+          <div
+            className="pointer-events-none absolute -right-4 top-2 h-28 w-1.5 origin-top rounded-full bg-white/25 transition-transform duration-700"
+            style={{ transform: `rotate(${playing ? 24 : 6}deg)` }}
+          />
+        </div>
+
+        <div className="w-full">
+          <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
+            Now {playing ? "playing" : "paused"}
+          </p>
+          <h3 className="mt-2 font-display text-3xl">{tracks[current]!.title}</h3>
+          <p className="mt-1 text-sm text-muted-foreground">{tracks[current]!.note}</p>
+
+          <div className="mt-6 flex flex-wrap items-center gap-3">
+            <GlowButton onClick={toggle}>{playing ? "Pause ❚❚" : "Play ▶"}</GlowButton>
+            <button
+              onClick={skip}
+              className="rounded-full border border-white/12 px-5 py-2 text-xs uppercase tracking-[0.2em] text-muted-foreground transition hover:text-foreground"
+            >
+              Next track ⏭
+            </button>
+          </div>
+
+          <div className="mt-7 grid gap-2">
+            {tracks.map((t, i) => (
+              <button
+                key={t.src}
+                onClick={() => play(i)}
+                className={`flex items-center justify-between rounded-2xl border px-4 py-3 text-left text-sm transition ${
+                  i === current
+                    ? "border-accent/50 bg-accent/10"
+                    : "border-white/8 hover:border-white/20 hover:bg-white/[0.05]"
+                }`}
+              >
+                <span>{t.title}</span>
+                <span className="text-xs text-muted-foreground">
+                  {i === current && playing ? "playing" : "play"}
+                </span>
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+    </Section>
   );
 }
 
