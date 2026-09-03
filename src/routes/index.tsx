@@ -95,11 +95,12 @@ const memories: Memory[] = [
   {
     src: memoryPicnic,
     alt: "A picnic blanket with flowers and a guitar",
-    title: "The whole afternoon",
-    date: "Somewhere green",
-    caption: "You fell asleep mid-sentence.",
+    title: "my fav pic of us",
+    date: "MY POOKIE",
+    caption:
+      "now ik that my vaibav will always like a cute lil pookie whenever taking selfie with me ToT...having my entire trust on you while ur driving and not having to fear about anything with u (except for evangelin's mom) ",
     story:
-      "I sat there and did nothing for an hour and it was the calmest I had felt all year. You do that to a day.",
+      "(every hangout is different yet in every hangout one feeling is always the same...my comfort. I've always felt at peace and comfortable with u vaibav)",
   },
 ];
 
