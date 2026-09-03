@@ -138,9 +138,9 @@ const rathers: Rather[] = [
   {
     q: "Would you rather…",
     options: [
-      { label: "spend a whole rainy day under one umbrella with me", reply: "correct answer. my arms are already sore and i don't care." },
-      { label: "stay up till 3am talking about nothing", reply: "sleep bhakti -_- ... nopee :P" },
-      { label: "have a canteen date every single day", reply: "snacks skipped, crush talked to. worth it." },
+      { label: "spend two hrs with me every day", reply: "correct answer. my arms are already sore and i don't care." },
+      { label: "spend a whole week with me once a month", reply: "ooo.. looks like we are going on many dates then😝 " },
+      { label: "spend a whole day with me once a week", reply: "snacks skipped, crush talked to. worth it." },
     ],
   },
   {
