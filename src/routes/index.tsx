@@ -148,9 +148,9 @@ const compliments = [
   "everyone does mistakes but the ones tht reflect on it are diamonds. i found my own diamond in this world",
   "if home was a person, for me it would always be u vaibav. my comfort home, my everything",
   "i want u to achieve all of ur dreams and always be the happiest person, with or without me",
-  "yk how did ik ur the ",
-  "Being around you is the least tiring thing in my life.",
-  "You are the person I want to tell things to first. Always.",
+  "i could stay beside u, lie my head on ur shoulders for hours and still not be bored",
+  "even after many months or years, with or without the spark, i will always choose you vaibav.",
+  "thank you sooo muchh for being with me during my ups and downs. for handling all of my mood swings without complaining. i loveee youu alotttt vaibavv",
 ];
 
 function Index() {
@@ -700,7 +700,7 @@ function Wall() {
         )}
       </div>
       <div className="mt-8">
-        <GlowButton onClick={reveal}>{exhausted ? "That's all of them" : "Tell Me Something…"}</GlowButton>
+        <GlowButton onClick={reveal}>{exhausted ? "That's some of it out of many" : "Tell Me Something…"}</GlowButton>
       </div>
     </Section>
   );
