@@ -35,12 +35,12 @@ const FUNNY_SKILL = "ragebaiting ToT";
 const FUNNY_WEAKNESS = "my eyes and lips :P";
 
 const letterPolaroids: { src: string; alt: string; title: string; note: string }[] = [
-  { src: heroPolaroid, alt: "[PHOTO 1]", title: "[MOMENT 1]", note: "[Write a few lines about this photo.]" },
-  { src: memoryCoffee, alt: "[PHOTO 2]", title: "[MOMENT 2]", note: "[Write a few lines about this photo.]" },
-  { src: memoryRoadtrip, alt: "[PHOTO 3]", title: "[MOMENT 3]", note: "[Write a few lines about this photo.]" },
-  { src: memoryIcecream, alt: "[PHOTO 4]", title: "[MOMENT 4]", note: "[Write a few lines about this photo.]" },
-  { src: memoryDance, alt: "[PHOTO 5]", title: "[MOMENT 5]", note: "[Write a few lines about this photo.]" },
-  { src: memoryPicnic, alt: "[PHOTO 6]", title: "[MOMENT 6]", note: "[Write a few lines about this photo.]" },
+  { src: heroPolaroid, alt: "[PHOTO 1]", title: "ur fav pookie ", note: "the guy who literally blushes around u, loves u alot" },
+  { src: memoryCoffee, alt: "[PHOTO 2]", title: "ur boys", note: "they might irritate u sometimes but at the end they will also make u laugh with their stupid jokes" },
+  { src: memoryRoadtrip, alt: "[PHOTO 3]", title: "ur gng", note: "who hv always been with for many years" },
+  { src: memoryIcecream, alt: "[PHOTO 4]", title: "ur sis", note: "might kick u but let me tell u smth...she would never want to lose u and there is love even in her anger" },
+  { src: memoryDance, alt: "[PHOTO 5]", title: "ur family", note: "who will be always be there to support u and get u out of the trouble" },
+  { src: memoryPicnic, alt: "[PHOTO 6]", title: "ur tomato", note: "i'll always be there to give u headache bishhh :p " },
 ];
 
 
@@ -772,14 +772,14 @@ function Finale({ onReplay }: { onReplay: () => void }) {
         ) : (
           <div className="pop mt-10 w-full">
             <p className={`${glass} mx-auto max-w-xl p-8 font-display text-xl leading-relaxed sm:text-2xl`}>
-              Out of everyone in the world, I'm really glad I get to call you my boyfriend.
+              out of everyone, I'm glad that ur my boyfriend and will always want u as my partner in my every universe. 
             </p>
 
             <div className={`${glass} mx-auto mt-12 max-w-4xl p-6 text-left sm:p-10`}>
               <p className="text-[0.7rem] uppercase tracking-[0.45em] text-accent">One last letter</p>
               <h3 className="mt-4 font-display text-3xl sm:text-4xl">My dearest {NAME},</h3>
               <p className="mt-5 text-sm leading-relaxed text-muted-foreground sm:text-base">
-                [LETTER OPENING — write a few lines here about how this year felt with him.]
+                in all of my letters that u have read till now i always talk abt how much i love u and how much u mean to me but this time i wanted to do something different. Vaibav not only are u the best boyfriend to me but ur also a great person who is loved by everyone. A great friend to his pookies and other friends, a great son to his parents, a great brother to his sister and last but not the least a great human being. All of us love u alot darling and we care soo muchh for u. Maybe u think that ur pookies don't but trust me, each and every single person around u loves u and u mean a lot to each of us. Maybe they dont show it enough but during ur hard times they will always show up for u. You would hv gotten distant with some of ur friends but that doesn't mean they stopped caring abt u. All of us will always support u no matter wht and we want the best for u 💕
               </p>
 
               <div className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2">
@@ -804,7 +804,7 @@ function Finale({ onReplay }: { onReplay: () => void }) {
               </div>
 
               <p className="mt-10 text-sm leading-relaxed text-muted-foreground sm:text-base">
-                [LETTER CLOSING — a few final lines, then sign off.]
+                Ur parents, ur sis, nithin, ashwin, merien, all of ur frnds, ur teachers will be there for u and ofcc lets not forget ur buritto :D.... when the whole world is against u, I'll be always there with my arms opened widely for u. The times u js want to hug someone , I'll always comfort u while running my fingers thru ur hair. During ur ups and down, I'll be beside u my love ❤️❤️
               </p>
               <p className="mt-6 font-display text-xl text-accent">Always yours, Bhakti</p>
             </div>
