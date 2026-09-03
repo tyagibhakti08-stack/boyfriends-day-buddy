@@ -9,6 +9,9 @@ import rainAsset from "@/assets/rain.jpg.asset.json";
 import blehAsset from "@/assets/bleh.jpg.asset.json";
 import pookieAsset from "@/assets/pookie.jpg.asset.json";
 import memoryCoffee from "@/assets/memory-coffee.jpg";
+import nithinAsset from "@/assets/nithin.jpg.asset.json";
+import boysAsset from "@/assets/boys.jpg.asset.json";
+import tomatoAsset from "@/assets/tomato.jpg.asset.json";
 import memoryRoadtrip from "@/assets/memory-roadtrip.jpg";
 import memoryIcecream from "@/assets/memory-icecream.jpg";
 import memoryDance from "@/assets/memory-dance.jpg";
@@ -41,12 +44,12 @@ const FUNNY_SKILL = "ragebaiting ToT";
 const FUNNY_WEAKNESS = "my eyes and lips :P";
 
 const letterPolaroids: { src: string; alt: string; title: string; note: string }[] = [
-  { src: heroPolaroid, alt: "[PHOTO 1]", title: "ur fav pookie ", note: "the guy who literally blushes around u, loves u alot" },
-  { src: memoryCoffee, alt: "[PHOTO 2]", title: "ur boys", note: "they might irritate u sometimes but at the end they will also make u laugh with their stupid jokes" },
+  { src: nithinAsset.url, alt: "ur fav pookie", title: "ur fav pookie ", note: "the guy who literally blushes around u, loves u alot" },
+  { src: boysAsset.url, alt: "ur boys", title: "ur boys", note: "they might irritate u sometimes but at the end they will also make u laugh with their stupid jokes" },
   { src: memoryRoadtrip, alt: "[PHOTO 3]", title: "ur gng", note: "who hv always been with for many years" },
   { src: memoryIcecream, alt: "[PHOTO 4]", title: "ur sis", note: "might kick u but let me tell u smth...she would never want to lose u and there is love even in her anger" },
   { src: memoryDance, alt: "[PHOTO 5]", title: "ur family", note: "who will be always be there to support u and get u out of the trouble" },
-  { src: memoryPicnic, alt: "[PHOTO 6]", title: "ur tomato", note: "i'll always be there to give u headache bishhh :p " },
+  { src: tomatoAsset.url, alt: "ur tomato", title: "ur tomato", note: "i'll always be there to give u headache bishhh :p " },
 ];
 
 
