@@ -67,11 +67,11 @@ const memories: Memory[] = [
   {
     src: memoryRoadtrip,
     alt: "An open road seen from the car at dusk",
-    title: "600 miles, one playlist",
-    date: "The drive",
-    caption: "You sang every word wrong on purpose.",
+    title: "\"sleep bhakti -_-\"   \"nopee :P\"",
+    date: "THOSE LATE NIGHT CONVOS",
+    caption: "where none of us were ready to sleep even tho we both were tired. js us talking for hours in the silent night and having a small smile on our faces",
     story:
-      "Somewhere past the second gas station you said you would drive anywhere with me. I have quietly held you to that ever since.",
+      "( to actually think of, I've never stayed up late at night just to chat with someone but as they say love makes u do crazy things. chatting with someone till 1 is crazy for me btw ToT)",
   },
   {
     src: memoryIcecream,
