@@ -140,7 +140,7 @@ const rathers: Rather[] = [
     options: [
       { label: "spend two hrs with me every day", reply: "i get to see my baby every dayy🥹." },
       { label: "spend a whole week with me once a month", reply: "ooo.. looks like we are going on many dates then😝 " },
-      { label: "spend a whole day with me once a week", reply: "i get to see my baby every week🥹." },
+      { label: "spend a whole day with me once a week", reply: "a whole day? WE ARE EXPLORING EVERY PLACE WHILE RIDING UR SCOOTY!!." },
     ],
   },
   {
