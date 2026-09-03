@@ -170,7 +170,7 @@ const rathers: Rather[] = [
   {
     q: "Would you rather…",
     options: [
-      { label: "relive our first hangout", reply: "sweating, dogs, you losing every game. perfect." },
+      { label: "relive our first hangout", reply: "the day i confessed was our first ever hangout btww." },
       { label: "get a brand new memory tomorrow", reply: "so u will forget us?😭." },
       { label: "do absolutely nothing together", reply: "my comfort home. always u vaibav." },
     ],
