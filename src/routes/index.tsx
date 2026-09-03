@@ -144,11 +144,11 @@ const quiz: Question[] = [
 ];
 
 const compliments = [
-  "You make hard days feel handleable. That is not a small thing.",
-  "You listen properly. Most people just wait for their turn to speak.",
-  "You have never once made me feel like too much.",
-  "You are kind when nobody is watching, which is the only kind that counts.",
-  "You remember the small stuff I mention once and forget I said.",
+  "you are the first person tht comes to my minds whenever smth happens in my life..js like how kids share their pain or excitement to their parents or friends, i also feel the same with u",
+  "everyone does mistakes but the ones tht reflect on it are diamonds. i found my own diamond in this world",
+  "if home was a person, for me it would always be u vaibav. my comfort home, my everything",
+  "i want u to achieve all of ur dreams and always be the happiest person, with or without me",
+  "yk how did ik ur the ",
   "Being around you is the least tiring thing in my life.",
   "You are the person I want to tell things to first. Always.",
 ];
@@ -688,7 +688,7 @@ function Wall() {
   const exhausted = shown.length >= compliments.length;
 
   return (
-    <Section id="wall" eyebrow="File 05" title="Things You Probably Don't Hear Enough">
+    <Section id="wall" eyebrow="File 05" title="things u prob don't hear enough">
       <div className="grid gap-4 sm:grid-cols-2">
         {shown.map((c, i) => (
           <p key={i} className={`pop ${glass} p-6 text-sm leading-relaxed text-foreground/90`}>
