@@ -76,11 +76,12 @@ const memories: Memory[] = [
   {
     src: memoryIcecream,
     alt: "Two ice cream cones held up on a sunny street",
-    title: "The theft",
-    date: "Peak summer",
-    caption: "You ate mine and blamed the heat.",
-    story:
-      "Still unresolved. Still funny. I would let you do it again tomorrow, and you know that, which is the whole problem.",
+     title: "our first ever selfie together",
+     date: "BLEHHHH :P",
+     caption:
+       "both of us sweating in that climate and me pulling u towards every dog i see ToT... witnessing u lose every game we played that day and having fun the entire time with u.",
+     story:
+       "( ik after that hangout some things didn't go well, but hey its not your fault in fact its no ones so prettyyyy pleaseee don't hate yourself vaibav and don't be so hard on yourself )",
   },
   {
     src: memoryDance,
