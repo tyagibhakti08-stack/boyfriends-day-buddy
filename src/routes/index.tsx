@@ -124,7 +124,7 @@ const badges = [
   { icon: "🏆", name: "Professional ragebaiter", note: "Undefeated. always succeed in rage baiting me . Beloved." },
   { icon: "⭐", name: "Certified Good Human", note: "Verified by everyone who has met you and been with you." },
   { icon: "🎮", name: "my personal senpai", note: "would laugh at me first but eventually teach me" },
-  { icon: "😂", name: "CEO of Making Me blush", note: "a single text, flirty line or just a pic of u is enough to make me blush af" },
+  { icon: "😳", name: "CEO of Making Me blush", note: "a single text, flirty line or just a pic of u is enough to make me blush af" },
   { icon: "🛡️", name: "Always Got My Back", note: "whatever the situation, my darling will always be there for me...will scold for my clumsiness but even in that scolding love and care is present.  " },
   { icon: "💯", name: "10/10 Human", note: "The world's best human badge goes to my baby. Would recommend. Will NOT share." },
 ];
