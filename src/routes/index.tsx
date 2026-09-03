@@ -146,9 +146,9 @@ const rathers: Rather[] = [
   {
     q: "Would you rather…",
     options: [
-      { label: "get ragebaited by me forever", reply: "professional ragebaiter meeting his final boss." },
-      { label: "never be teased again", reply: "boring. you'd miss it in two days." },
-      { label: "tease me back twice as hard", reply: "we both know you'd lose ToT" },
+      { label: "wear matching outfits", reply: "professional ragebaiter meeting his final boss." },
+      { label: "wear matching accessories", reply: "boring. you'd miss it in two days." },
+      { label: "hv matching wallpaper on our phone screen", reply: "we both know you'd lose ToT" },
     ],
   },
   {
