@@ -16,6 +16,9 @@ import memoryRoadtrip from "@/assets/memory-roadtrip.jpg";
 import memoryIcecream from "@/assets/memory-icecream.jpg";
 import memoryDance from "@/assets/memory-dance.jpg";
 import memoryPicnic from "@/assets/memory-picnic.jpg";
+import trackA from "@/assets/track-a.m4a.asset.json";
+import trackB from "@/assets/track-b.m4a.asset.json";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
