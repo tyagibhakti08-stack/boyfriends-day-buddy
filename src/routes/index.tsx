@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useMemo, useRef, useState } from "react";
 
 import heroPolaroid from "@/assets/hero-polaroid.jpg";
+import sleepAsset from "@/assets/sleep.jpg.asset.json";
 import flowerAsset from "@/assets/flower.jpg.asset.json";
 import canteenAsset from "@/assets/canteen.jpg.asset.json";
 import rainAsset from "@/assets/rain.jpg.asset.json";
@@ -80,8 +81,8 @@ const memories: Memory[] = [
        "( js like tht day if i hv to spend my entire lifetime holding tht umbrella with u beside me, I'll happily do it even if my arms are sore )",
   },
   {
-    src: memoryRoadtrip,
-    alt: "An open road seen from the car at dusk",
+    src: sleepAsset.url,
+    alt: "Our late night chat about who should sleep first",
     title: "\"sleep bhakti -_-\"   \"nopee :P\"",
     date: "THOSE LATE NIGHT CONVOS",
     caption: "where none of us were ready to sleep even tho we both were tired. js us talking for hours in the silent night and having a small smile on our faces",
