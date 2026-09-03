@@ -148,7 +148,7 @@ const rathers: Rather[] = [
     options: [
       { label: "wear matching outfits", reply: "lets show everyone WE ARE A COUPLE!!!." },
       { label: "wear matching accessories", reply: "let me guess..i hv to help u with ur chain every time ryt?😭." },
-      { label: "hv matching wallpaper on our phone screen", reply: "we both know you'd lose ToT" },
+      { label: "hv matching wallpaper on our phone screen", reply: "then is it gonna be a pic of us kissing or?" },
     ],
   },
   {
