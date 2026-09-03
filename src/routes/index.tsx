@@ -105,12 +105,12 @@ const memories: Memory[] = [
 ];
 
 const badges = [
-  { icon: "🏆", name: "Professional Teaser", note: "Undefeated. Deeply annoying. Beloved." },
-  { icon: "⭐", name: "Certified Good Human", note: "Verified by everyone who has met you." },
-  { icon: "🎮", name: "Gaming Partner", note: "Carries me and pretends I helped." },
-  { icon: "😂", name: "CEO of Making Me Laugh", note: "Zero days without a stupid voice." },
-  { icon: "🛡️", name: "Always Got My Back", note: "No questions. Every single time." },
-  { icon: "💯", name: "10/10 Human", note: "Would recommend. Will not share." },
+  { icon: "🏆", name: "Professional ragebaiter", note: "Undefeated. always succeed in rage baiting me . Beloved." },
+  { icon: "⭐", name: "Certified Good Human", note: "Verified by everyone who has met you and been with you." },
+  { icon: "🎮", name: "my personal senpai", note: "would laugh at me first but eventually teach me" },
+  { icon: "😂", name: "CEO of Making Me blush", note: "a single text, flirty line or just a pic of u is enough to make me blush af" },
+  { icon: "🛡️", name: "Always Got My Back", note: "whatever the situation, my darling will always be there for me...will scold for my clumsiness but even in that scolding love and care is present.  " },
+  { icon: "💯", name: "10/10 Human", note: "The world's best human badge goes to my baby. Would recommend. Will NOT share." },
 ];
 
 type Question = { q: string; options: string[]; answer: number };
