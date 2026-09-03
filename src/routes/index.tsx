@@ -34,6 +34,16 @@ const NAME = "Vaibavvv";
 const FUNNY_SKILL = "ragebaiting ToT";
 const FUNNY_WEAKNESS = "my eyes and lips :P";
 
+const letterPolaroids: { src: string; alt: string; title: string; note: string }[] = [
+  { src: heroPolaroid, alt: "[PHOTO 1]", title: "[MOMENT 1]", note: "[Write a few lines about this photo.]" },
+  { src: memoryCoffee, alt: "[PHOTO 2]", title: "[MOMENT 2]", note: "[Write a few lines about this photo.]" },
+  { src: memoryRoadtrip, alt: "[PHOTO 3]", title: "[MOMENT 3]", note: "[Write a few lines about this photo.]" },
+  { src: memoryIcecream, alt: "[PHOTO 4]", title: "[MOMENT 4]", note: "[Write a few lines about this photo.]" },
+  { src: memoryDance, alt: "[PHOTO 5]", title: "[MOMENT 5]", note: "[Write a few lines about this photo.]" },
+  { src: memoryPicnic, alt: "[PHOTO 6]", title: "[MOMENT 6]", note: "[Write a few lines about this photo.]" },
+];
+
+
 type Memory = {
   src: string;
   alt: string;
