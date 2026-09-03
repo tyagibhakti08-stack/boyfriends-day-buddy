@@ -155,7 +155,7 @@ const rathers: Rather[] = [
     q: "Would you rather…",
     options: [
       { label: "take 100 candid pics of me", reply: "storage full, heart fuller." },
-      { label: "let me take 100 candid pics of you", reply: "MY FAV MODEL. no notes." },
+      { label: "let me take 100 candid pics of you", reply: "MY FAV MODEL. no doubt." },
       { label: "one perfect selfie together", reply: "already have it. still my fav pic of us." },
     ],
   },
