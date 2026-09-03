@@ -86,11 +86,11 @@ const memories: Memory[] = [
   {
     src: memoryDance,
     alt: "Two silhouettes dancing under fairy lights",
-    title: "Kitchen slow dance",
-    date: "Late, no reason",
-    caption: "Dinner burned. Worth it.",
+    title: "my vaibav can never say \"no\" to my ideas ",
+    date: "MY FAV MODEL",
+    caption: "even tho you were shy to do it as we were in a park, you still did it for me :D i loveeee youuu sooo muchhhh.. You will always be my no.1 fav model...in future i want to take manyyy candid pics of u until my storage begs me to stop.",
     story:
-      "You spun me between the counter and the fridge like it was a ballroom. I think about it more often than I admit.",
+      "(its was our longest hangout yet felt the shortest?)",
   },
   {
     src: memoryPicnic,
