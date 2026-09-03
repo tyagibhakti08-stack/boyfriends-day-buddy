@@ -477,10 +477,10 @@ function Report() {
 /* ---------------- 2.5 record player ---------------- */
 
 const tracks: { title: string; note: string; src: string }[] = [
-  { title: "our song", note: "the one that always plays in my head", src: "/music/track-1.mp3" },
-  { title: "late night convos", note: "for 1am, when neither of us sleeps", src: "/music/track-2.mp3" },
-  { title: "rainy day", note: "one umbrella, two idiots", src: "/music/track-3.mp3" },
+  { title: "song one", note: "the one that always plays in my head", src: trackA.url },
+  { title: "song two", note: "for 1am, when neither of us sleeps", src: trackB.url },
 ];
+
 
 function RecordPlayer() {
   const audioRef = useRef<HTMLAudioElement | null>(null);
