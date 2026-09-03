@@ -118,7 +118,7 @@ type Question = { q: string; options: string[]; answer: number };
 const quiz: Question[] = [
   {
     q: "What is the fastest way to ruin my mood?",
-    options: ["Being late", "Making me wait for food", "Telling me to calm down", "Loud chewing"],
+    options: ["Being late for our hangout", "not replying my text for hours", "u saying tht ur gay for ur pookies", "ragebaiting me "],
     answer: 2,
   },
   {
@@ -652,7 +652,7 @@ function Game() {
             {picked !== null && (
               <div className="pop mt-7 flex flex-wrap items-center justify-between gap-4">
                 <p className={`font-display text-lg ${correct ? "text-accent" : "text-destructive"}`}>
-                  {correct ? "OKAYYY, YOU ACTUALLY KNOW ME." : "Bro… we need to talk."}
+                  {correct ? "OKAYYY, YOU ACTUALLY KNOW ME!!" : "Bro… we need to talk."}
                 </p>
                 <GlowButton onClick={next}>
                   {i + 1 >= quiz.length ? "See my verdict →" : "Next question →"}
