@@ -40,7 +40,7 @@ export default function ThreeWishes() {
       <p className="text-[0.7rem] uppercase tracking-[0.45em] text-accent">Final file</p>
       <h2 className="mt-4 font-display text-4xl sm:text-5xl">Your three wishes</h2>
       <p className="mt-4 text-sm leading-relaxed text-muted-foreground sm:text-base">
-        anything you want from me — big, silly, impossible. write three and i'll get them ToT
+        anything you want  — big, silly, impossible. write three wishes and lets give it to a genie?
       </p>
 
       {state === "sent" ? (
