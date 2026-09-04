@@ -1,6 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useMemo, useRef, useState } from "react";
 
+import ThreeWishes from "@/components/ThreeWishes";
+
+
 import heroPolaroid from "@/assets/hero-polaroid.jpg";
 import sleepAsset from "@/assets/sleep.jpg.asset.json";
 import flowerAsset from "@/assets/flower.jpg.asset.json";
