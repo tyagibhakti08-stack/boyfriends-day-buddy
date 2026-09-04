@@ -194,11 +194,13 @@ const compliments = [
 ];
 
 function Index() {
+  const [tipsSeen, setTipsSeen] = useState(false);
   const [started, setStarted] = useState(false);
   const [runKey, setRunKey] = useState(0);
 
   const replay = () => {
     setStarted(false);
+    setTipsSeen(false);
     setRunKey((k) => k + 1);
     if (typeof window !== "undefined") window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -206,8 +208,10 @@ function Index() {
   return (
     <div key={runKey} className="relative min-h-screen overflow-x-hidden bg-background text-foreground">
       <Particles />
-      <MusicToggle />
-      {!started ? (
+      {tipsSeen && <MusicToggle />}
+      {!tipsSeen ? (
+        <ProTips onContinue={() => setTipsSeen(true)} />
+      ) : !started ? (
         <Landing onStart={() => setStarted(true)} />
       ) : (
         <main className="relative z-10">
@@ -223,6 +227,66 @@ function Index() {
     </div>
   );
 }
+
+function ProTips({ onContinue }: { onContinue: () => void }) {
+  const tips = [
+    {
+      icon: "💻",
+      title: "open this on a laptop or PC",
+      body: "the whole thing is built wide and cinematic — on a phone you'll miss half the magic.",
+    },
+    {
+      icon: "🎧",
+      title: "plug in headphones or earphones",
+      body: "there's music waiting for you in here. speakers work, but headphones hit different.",
+    },
+    {
+      icon: "🕯️",
+      title: "give it a few quiet minutes",
+      body: "no rush, no skipping. scroll slow, click everything, read every line.",
+    },
+  ];
+
+  return (
+    <section className="relative z-10 flex min-h-screen items-center justify-center px-5 py-16">
+      <div className="rise w-full max-w-2xl rounded-3xl border border-foreground/10 bg-foreground/[0.04] p-8 shadow-2xl backdrop-blur-xl sm:p-12">
+        <p className="text-xs uppercase tracking-[0.4em] text-accent">before you begin</p>
+        <h1 className="mt-4 font-display text-4xl leading-tight sm:text-5xl">
+          Three tiny pro tips
+        </h1>
+        <p className="mt-3 text-sm text-muted-foreground">
+          just so this feels exactly the way i wanted it to feel for you.
+        </p>
+
+        <ul className="mt-8 space-y-4">
+          {tips.map((t, i) => (
+            <li
+              key={t.title}
+              className="pop flex gap-4 rounded-2xl border border-foreground/10 bg-background/30 p-4 sm:p-5"
+              style={{ animationDelay: `${0.15 + i * 0.12}s` }}
+            >
+              <span aria-hidden className="text-2xl leading-none">
+                {t.icon}
+              </span>
+              <div>
+                <p className="font-display text-lg text-foreground">{t.title}</p>
+                <p className="mt-1 text-sm text-muted-foreground">{t.body}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
+
+        <button
+          onClick={onContinue}
+          className="wiggle mt-9 w-full rounded-full bg-primary px-8 py-4 font-medium text-primary-foreground shadow-xl transition-transform hover:scale-[1.02] sm:w-auto"
+        >
+          okay, i'm ready →
+        </button>
+      </div>
+    </section>
+  );
+}
+
 
 /* ---------------- shared ---------------- */
 
