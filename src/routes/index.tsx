@@ -238,19 +238,19 @@ function ProTips({ onContinue }: { onContinue: () => void }) {
     {
       icon: "🎧",
       title: "plug in headphones or earphones",
-      body: "there's music waiting for you in here. speakers work, but headphones hit different.",
+      body: "\n",
     },
     {
       icon: "🕯️",
       title: "give it a few quiet minutes",
-      body: "no rush, no skipping. scroll slow, click everything, read every line.",
+      body: "no rush, no skipping. scroll slow, click everything, read every line and feel all the emotions",
     },
   ];
 
   return (
     <section className="relative z-10 flex min-h-screen items-center justify-center px-5 py-16">
       <div className="rise w-full max-w-2xl rounded-3xl border border-foreground/10 bg-foreground/[0.04] p-8 shadow-2xl backdrop-blur-xl sm:p-12">
-        <p className="text-xs uppercase tracking-[0.4em] text-accent">before you begin</p>
+        <p className="text-xs uppercase tracking-[0.4em] text-accent">VAIBAV...BEFORE YOU BEGIN</p>
         <h1 className="mt-4 font-display text-4xl leading-tight sm:text-5xl">
           Three tiny pro tips
         </h1>
@@ -280,7 +280,7 @@ function ProTips({ onContinue }: { onContinue: () => void }) {
           onClick={onContinue}
           className="wiggle mt-9 w-full rounded-full bg-primary px-8 py-4 font-medium text-primary-foreground shadow-xl transition-transform hover:scale-[1.02] sm:w-auto"
         >
-          okay, i'm ready →
+          okay, i'm excitedd!!! →
         </button>
       </div>
     </section>
