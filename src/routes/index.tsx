@@ -1,6 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useMemo, useRef, useState } from "react";
 
+import ThreeWishes from "@/components/ThreeWishes";
+
+
 import heroPolaroid from "@/assets/hero-polaroid.jpg";
 import sleepAsset from "@/assets/sleep.jpg.asset.json";
 import flowerAsset from "@/assets/flower.jpg.asset.json";
@@ -941,9 +944,12 @@ function Finale({ onReplay }: { onReplay: () => void }) {
               <p className="mt-6 font-display text-xl text-accent">Always yours, Bhakti</p>
             </div>
 
-            <div className="mt-12">
+            <ThreeWishes />
+
+            <div className="mt-4">
               <GlowButton onClick={onReplay}>REPLAY THE WHOLE THING ↻</GlowButton>
             </div>
+
           </div>
         )}
 
