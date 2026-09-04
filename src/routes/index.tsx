@@ -941,9 +941,12 @@ function Finale({ onReplay }: { onReplay: () => void }) {
               <p className="mt-6 font-display text-xl text-accent">Always yours, Bhakti</p>
             </div>
 
-            <div className="mt-12">
+            <ThreeWishes />
+
+            <div className="mt-4">
               <GlowButton onClick={onReplay}>REPLAY THE WHOLE THING ↻</GlowButton>
             </div>
+
           </div>
         )}
 
