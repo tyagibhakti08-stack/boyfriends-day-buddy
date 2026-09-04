@@ -1,5 +1,4 @@
 import { createServerFn } from "@tanstack/react-start";
-import { createClient } from "@supabase/supabase-js";
 import { z } from "zod";
 
 const submitSchema = z.object({
@@ -12,13 +11,9 @@ const submitSchema = z.object({
 export const submitWishes = createServerFn({ method: "POST" })
   .inputValidator((data: unknown) => submitSchema.parse(data))
   .handler(async ({ data }) => {
-    const supabase = createClient(
-      process.env["VITE_SUPABASE_URL"]!,
-      process.env["VITE_SUPABASE_PUBLISHABLE_KEY"]!,
-      { auth: { persistSession: false, autoRefreshToken: false } },
-    );
+    const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
 
-    const { error } = await supabase.from("wishes").insert({
+    const { error } = await supabaseAdmin.from("wishes").insert({
       wish_one: data.wishOne,
       wish_two: data.wishTwo,
       wish_three: data.wishThree,
@@ -28,6 +23,7 @@ export const submitWishes = createServerFn({ method: "POST" })
     if (error) throw new Error(error.message);
     return { ok: true as const };
   });
+
 
 const readSchema = z.object({ passcode: z.string().min(1) });
 
