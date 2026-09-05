@@ -468,7 +468,7 @@ function Landing({ onStart }: { onStart: () => void }) {
         <GlowButton onClick={onStart}>START THE EXPERIENCE →</GlowButton>
       </div>
       <p className="rise mt-8 text-xs text-muted-foreground/60" style={{ animationDelay: "0.6s" }}>
-        Best with sound. Six sections. No skipping. <EasterEgg id="landing" hint="·" />
+        Best with sound. Six sections. No skipping.
       </p>
 
     </section>
@@ -517,7 +517,10 @@ function Report() {
               style={{ animationDelay: `${i * 0.08}s` }}
             >
               <dt className="text-xs uppercase tracking-[0.2em] text-muted-foreground">{k}</dt>
-              <dd className="text-right text-sm font-medium">{v}</dd>
+              <dd className="text-right text-sm font-medium">
+                {v}
+                {k === "Name" && <EasterEgg id="landing" className="ml-2" />}
+              </dd>
             </div>
           ))}
         </dl>
