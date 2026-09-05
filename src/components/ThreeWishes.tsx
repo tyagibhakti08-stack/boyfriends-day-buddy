@@ -12,6 +12,9 @@ export default function ThreeWishes() {
   const [wishes, setWishes] = useState(["", "", ""]);
   const [note, setNote] = useState("");
   const [state, setState] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const [unlocked, setUnlocked] = useState(false);
+  const { found, total, allFound } = useEggs();
+
 
   const setWish = (i: number, v: string) =>
     setWishes((w) => w.map((x, idx) => (idx === i ? v : x)));
