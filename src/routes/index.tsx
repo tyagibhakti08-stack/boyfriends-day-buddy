@@ -52,9 +52,9 @@ const FUNNY_WEAKNESS = "my eyes and lips :P";
 const letterPolaroids: { src: string; alt: string; title: string; note: string }[] = [
   { src: nithinAsset.url, alt: "ur fav pookie", title: "ur fav pookie ", note: "the guy who literally blushes around u, loves u alot" },
   { src: boysAsset.url, alt: "ur boys", title: "ur boys", note: "they might irritate u sometimes but at the end they will also make u laugh with their stupid jokes" },
-  { src: memoryRoadtrip, alt: "[PHOTO 3]", title: "ur gng", note: "who hv always been with for many years" },
+  { src: memoryRoadtrip, alt: "[PHOTO 3]", title: "ur gng", note: "who hv always been there with for many years" },
   { src: memoryIcecream, alt: "[PHOTO 4]", title: "ur sis", note: "might kick u but let me tell u smth...she would never want to lose u and there is love even in her anger" },
-  { src: memoryDance, alt: "[PHOTO 5]", title: "ur family", note: "who will be always be there to support u and get u out of the trouble" },
+  { src: memoryDance, alt: "[PHOTO 5]", title: "ur family", note: "who will be always there to support u and get u out of any trouble" },
   { src: tomatoAsset.url, alt: "ur tomato", title: "ur tomato", note: "i'll always be there to give u headache bishhh :p " },
 ];
 

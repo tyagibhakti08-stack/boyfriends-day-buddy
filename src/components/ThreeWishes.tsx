@@ -38,12 +38,12 @@ export default function ThreeWishes() {
   return (
     <section id="wishes" className="relative mx-auto w-full max-w-3xl px-6 py-24">
       <p className="text-[0.7rem] uppercase tracking-[0.45em] text-accent">Final file</p>
-      <h2 className="mt-4 font-display text-4xl sm:text-5xl">Your three wishes</h2>
+      <h2 className="mt-4 font-display text-4xl sm:text-5xl">Your wishing place</h2>
       <p className="mt-4 text-sm leading-relaxed text-muted-foreground sm:text-base">
-        anything you want  — big, silly, impossible. write three wishes and lets give it to a genie?
+        anything you want — big, silly, impossible. write three wishes which only you will be able to see
       </p>
       <p className="mt-2 text-sm leading-relaxed text-muted-foreground sm:text-base">
-        sealed the second you lock it. no one reads these — not even me. just you and the genie 🔒
+        sealed the second you lock it.&nbsp;
       </p>
 
       {state === "sent" ? (
