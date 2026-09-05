@@ -40,17 +40,21 @@ export default function ThreeWishes() {
       <p className="text-[0.7rem] uppercase tracking-[0.45em] text-accent">Final file</p>
       <h2 className="mt-4 font-display text-4xl sm:text-5xl">Your three wishes</h2>
       <p className="mt-4 text-sm leading-relaxed text-muted-foreground sm:text-base">
-        anything you want  — big, silly, impossible. write three wishes and lets give it to a genie?
+        anything you want  — big, silly, impossible. write three wishes and lets give it to a genie?
+      </p>
+      <p className="mt-2 text-sm leading-relaxed text-muted-foreground sm:text-base">
+        sealed the second you lock it. no one reads these — not even me. just you and the genie 🔒
       </p>
 
       {state === "sent" ? (
         <div className={`${glass} pop mt-10 p-10 text-center`}>
           <p className="text-4xl">🧞‍♂️</p>
-          <p className="mt-4 font-display text-2xl">wishes received 💛</p>
+          <p className="mt-4 font-display text-2xl">locked away 💛</p>
           <p className="mt-3 text-sm text-muted-foreground">
-            they're on their way to me. consider them noted, baby.
+            sealed and sent off to the genie. nobody can open this — it's only yours.
           </p>
         </div>
+
       ) : (
         <form onSubmit={onSubmit} className={`${glass} mt-10 space-y-6 p-6 sm:p-10`}>
           {wishes.map((w, i) => (
@@ -95,7 +99,7 @@ export default function ThreeWishes() {
             disabled={!canSend}
             className="w-full rounded-full bg-gradient-to-r from-accent to-glow px-8 py-4 font-display text-lg text-primary-foreground shadow-lg transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-50"
           >
-            {state === "sending" ? "sending…" : "SEND MY WISHES →"}
+            {state === "sending" ? "locking…" : "LOCK IT 🔒"}
           </button>
         </form>
       )}
