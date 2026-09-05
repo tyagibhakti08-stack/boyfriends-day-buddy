@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import { submitWishes } from "@/lib/wishes.functions";
+import { useEggs } from "@/lib/eggs";
+
 
 const glass =
   "rounded-3xl border border-foreground/10 bg-foreground/[0.04] backdrop-blur-xl shadow-2xl";
@@ -10,6 +12,9 @@ export default function ThreeWishes() {
   const [wishes, setWishes] = useState(["", "", ""]);
   const [note, setNote] = useState("");
   const [state, setState] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const [unlocked, setUnlocked] = useState(false);
+  const { found, total, allFound } = useEggs();
+
 
   const setWish = (i: number, v: string) =>
     setWishes((w) => w.map((x, idx) => (idx === i ? v : x)));
@@ -30,6 +35,8 @@ export default function ThreeWishes() {
         },
       });
       setState("sent");
+      setUnlocked(false);
+
     } catch {
       setState("error");
     }
@@ -46,14 +53,30 @@ export default function ThreeWishes() {
         sealed the second you lock it.&nbsp;
       </p>
 
-      {state === "sent" ? (
+      {state === "sent" && !unlocked ? (
         <div className={`${glass} pop mt-10 p-10 text-center`}>
-          <p className="text-4xl">🧞‍♂️</p>
+          <p className="text-4xl">{allFound ? "🗝️" : "🔒"}</p>
           <p className="mt-4 font-display text-2xl">locked away 💛</p>
           <p className="mt-3 text-sm text-muted-foreground">
-            sealed and sent off to the genie. nobody can open this — it's only yours.
+            sealed shut. nobody can open this — it's only yours.
           </p>
+          <p className="mt-6 text-sm text-muted-foreground">
+            to open it again you need {total} hidden keys scattered across this whole website.
+            look closely at the tiny marks near the words…
+          </p>
+          <p className="mt-4 font-display text-xl text-accent">
+            {found.length} / {total} keys found
+          </p>
+          <button
+            type="button"
+            disabled={!allFound}
+            onClick={() => setUnlocked(true)}
+            className="mt-6 rounded-full bg-gradient-to-r from-accent to-glow px-8 py-4 font-display text-lg text-primary-foreground shadow-lg transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-40"
+          >
+            {allFound ? "UNLOCK IT 🗝️" : "still locked 🔒"}
+          </button>
         </div>
+
 
       ) : (
         <form onSubmit={onSubmit} className={`${glass} mt-10 space-y-6 p-6 sm:p-10`}>

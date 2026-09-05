@@ -2,6 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useMemo, useRef, useState } from "react";
 
 import ThreeWishes from "@/components/ThreeWishes";
+import EasterEgg from "@/components/EasterEgg";
+
 
 
 import heroPolaroid from "@/assets/hero-polaroid.jpg";
@@ -466,8 +468,9 @@ function Landing({ onStart }: { onStart: () => void }) {
         <GlowButton onClick={onStart}>START THE EXPERIENCE →</GlowButton>
       </div>
       <p className="rise mt-8 text-xs text-muted-foreground/60" style={{ animationDelay: "0.6s" }}>
-        Best with sound. Six sections. No skipping.
+        Best with sound. Six sections. No skipping. <EasterEgg id="landing" hint="·" />
       </p>
+
     </section>
   );
 }
@@ -682,8 +685,9 @@ function Vault() {
   return (
     <Section id="vault" eyebrow="File 02" title="The Memory Vault">
       <p className="-mt-6 mb-8 max-w-lg text-sm text-muted-foreground">
-        Six sealed files. Tap one to open it.
+        Six sealed files. Tap one to open it. <EasterEgg id="vault" hint="✦" />
       </p>
+
       <div className="grid grid-cols-2 gap-5 sm:grid-cols-3">
         {memories.map((m, i) => (
           <button
@@ -908,9 +912,11 @@ function Wall() {
           <p className="text-sm text-muted-foreground">Nothing revealed yet. Ask for one.</p>
         )}
       </div>
-      <div className="mt-8">
+      <div className="mt-8 flex items-center gap-3">
         <GlowButton onClick={reveal}>{exhausted ? "That's some of it out of many" : "Tell Me Something…"}</GlowButton>
+        <EasterEgg id="wall" hint="·" />
       </div>
+
     </Section>
   );
 }
