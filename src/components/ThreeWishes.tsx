@@ -35,6 +35,8 @@ export default function ThreeWishes() {
         },
       });
       setState("sent");
+      setUnlocked(false);
+
     } catch {
       setState("error");
     }
