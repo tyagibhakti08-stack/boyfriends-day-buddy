@@ -517,7 +517,10 @@ function Report() {
               style={{ animationDelay: `${i * 0.08}s` }}
             >
               <dt className="text-xs uppercase tracking-[0.2em] text-muted-foreground">{k}</dt>
-              <dd className="text-right text-sm font-medium">{v}</dd>
+              <dd className="text-right text-sm font-medium">
+                {v}
+                {k === "Name" && <EasterEgg id="landing" className="ml-2" />}
+              </dd>
             </div>
           ))}
         </dl>
