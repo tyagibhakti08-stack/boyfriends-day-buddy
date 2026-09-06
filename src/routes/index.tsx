@@ -127,7 +127,7 @@ const memories: Memory[] = [
     title: "my fav pic of us",
     date: "MY POOKIE",
     caption:
-      "now ik that my vaibav will always like a cute lil pookie whenever taking selfie with me ToT...having my entire trust on you while ur driving and not having to fear about anything with u (except for evangelin's mom) ",
+      "now ik that my vaibav will always smile like a cute lil pookie whenever taking selfie with me ToT...having my entire trust on you while ur driving and not having to fear about anything with u (except for evangelin's mom) ",
     story:
       "(every hangout is different yet in every hangout one feeling is always the same...my comfort. I've always felt at peace and comfortable with u vaibav)",
   },
