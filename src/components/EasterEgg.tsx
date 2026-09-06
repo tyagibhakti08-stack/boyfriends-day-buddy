@@ -10,9 +10,11 @@ export default function EasterEgg({
   className?: string;
   hint?: string;
 }) {
-  const { has } = useEggs();
+  const { has, revealed } = useEggs();
   const [justFound, setJustFound] = useState(false);
   const found = has(id);
+
+  if (!revealed) return null;
 
   return (
     <button
