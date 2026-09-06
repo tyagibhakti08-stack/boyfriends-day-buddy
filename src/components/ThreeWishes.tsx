@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import { submitWishes } from "@/lib/wishes.functions";
-import { useEggs } from "@/lib/eggs";
+import { revealEggs, useEggs } from "@/lib/eggs";
 
 
 const glass =
@@ -14,6 +14,23 @@ export default function ThreeWishes() {
   const [state, setState] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [unlocked, setUnlocked] = useState(false);
   const { found, total, allFound } = useEggs();
+  const sectionRef = useRef<HTMLElement | null>(null);
+
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          revealEggs();
+          io.disconnect();
+        }
+      },
+      { threshold: 0.25 },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
 
 
   const setWish = (i: number, v: string) =>
@@ -43,7 +60,11 @@ export default function ThreeWishes() {
   };
 
   return (
-    <section id="wishes" className="relative mx-auto w-full max-w-3xl px-6 py-24">
+    <section
+      ref={sectionRef}
+      id="wishes"
+      className="relative mx-auto w-full max-w-3xl px-6 py-24"
+    >
       <p className="text-[0.7rem] uppercase tracking-[0.45em] text-accent">Final file</p>
       <h2 className="mt-4 font-display text-4xl sm:text-5xl">Your wishing place</h2>
       <p className="mt-4 text-sm leading-relaxed text-muted-foreground sm:text-base">
