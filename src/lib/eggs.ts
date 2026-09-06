@@ -68,6 +68,7 @@ export function useEggs() {
 
   return {
     found,
+    revealed,
     total: EGG_IDS.length,
     has: (id: EggId) => found.includes(id),
     allFound: found.length === EGG_IDS.length,
