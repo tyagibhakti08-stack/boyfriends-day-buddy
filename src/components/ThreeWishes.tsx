@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import { submitWishes } from "@/lib/wishes.functions";
-import { useEggs } from "@/lib/eggs";
+import { revealEggs, useEggs } from "@/lib/eggs";
 
 
 const glass =
