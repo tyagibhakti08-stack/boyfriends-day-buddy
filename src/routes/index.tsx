@@ -191,7 +191,7 @@ const compliments = [
   "you are the first person tht comes to my minds whenever smth happens in my life..js like how kids share their pain or excitement to their parents or friends, i also feel the same with u",
   "everyone does mistakes but the ones tht reflect on it are diamonds. i found my own diamond in this world",
   "if home was a person, for me it would always be u vaibav. my comfort home, my everything",
-  "i want u to achieve all of ur dreams and always be the happiest person, with or without me",
+  "i want u to achieve all of ur dreams and always be the happiest person",
   "i could stay beside u, lie my head on ur shoulders for hours and still not be bored",
   "even after many months or years, with or without the spark, i will always choose you vaibav.",
   "thank you sooo muchh for being with me during my ups and downs. for handling all of my mood swings without complaining. i loveee youu alotttt vaibavv",
