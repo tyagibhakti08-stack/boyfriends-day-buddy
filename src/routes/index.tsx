@@ -17,6 +17,8 @@ import memoryCoffee from "@/assets/memory-coffee.jpg";
 import nithinAsset from "@/assets/nithin.jpg.asset.json";
 import boysAsset from "@/assets/boys.jpg.asset.json";
 import tomatoAsset from "@/assets/tomato.jpg.asset.json";
+import familyAsset from "@/assets/family.jpg.asset.json";
+import sisAsset from "@/assets/sis.jpg.asset.json";
 import memoryRoadtrip from "@/assets/memory-roadtrip.jpg";
 import memoryIcecream from "@/assets/memory-icecream.jpg";
 import memoryDance from "@/assets/memory-dance.jpg";
