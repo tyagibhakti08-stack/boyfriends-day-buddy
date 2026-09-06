@@ -53,12 +53,12 @@ const NAME = "Vaibavvv";
 const FUNNY_SKILL = "ragebaiting ToT";
 const FUNNY_WEAKNESS = "my eyes and lips :P";
 
-const letterPolaroids: { src: string; alt: string; title: string; note: string }[] = [
+const letterPolaroids: { src: string; alt: string; title: string; note: string; contain?: boolean }[] = [
   { src: nithinAsset.url, alt: "ur fav pookie", title: "ur fav pookie ", note: "the guy who literally blushes around u, loves u alot" },
   { src: boysAsset.url, alt: "ur boys", title: "ur boys", note: "they might irritate u sometimes but at the end they will also make u laugh with their stupid jokes" },
   { src: memoryRoadtrip, alt: "[PHOTO 3]", title: "ur gng", note: "who hv always been there with for many years" },
-  { src: sisAsset.url, alt: "ur sis", title: "ur sis", note: "might kick u but let me tell u smth...she would never want to lose u and there is love even in her anger" },
-  { src: familyAsset.url, alt: "ur family", title: "ur family", note: "who will be always there to support u and get u out of any trouble" },
+  { src: sisAsset.url, alt: "ur sis", title: "ur sis", note: "might kick u but let me tell u smth...she would never want to lose u and there is love even in her anger", contain: true },
+  { src: familyAsset.url, alt: "ur family", title: "ur family", note: "who will be always there to support u and get u out of any trouble", contain: true },
   { src: tomatoAsset.url, alt: "ur tomato", title: "ur tomato", note: "i'll always be there to give u headache bishhh :p " },
 ];
 
@@ -1003,7 +1003,7 @@ function Finale({ onReplay }: { onReplay: () => void }) {
                       src={p.src}
                       alt={p.alt}
                       loading="lazy"
-                      className="aspect-[4/3] w-full rounded-xl object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                      className={`aspect-[4/3] w-full rounded-xl ${p.contain ? "bg-foreground/[0.04] object-contain" : "object-cover"} transition-transform duration-700 group-hover:scale-[1.03]`}
                     />
                     <figcaption className="px-2 pb-1 pt-4">
                       <p className="font-display text-lg">{p.title}</p>
