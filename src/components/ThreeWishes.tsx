@@ -14,6 +14,23 @@ export default function ThreeWishes() {
   const [state, setState] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [unlocked, setUnlocked] = useState(false);
   const { found, total, allFound } = useEggs();
+  const sectionRef = useRef<HTMLElement | null>(null);
+
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          revealEggs();
+          io.disconnect();
+        }
+      },
+      { threshold: 0.25 },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
 
 
   const setWish = (i: number, v: string) =>
