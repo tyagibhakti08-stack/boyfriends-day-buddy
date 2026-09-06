@@ -4,7 +4,24 @@ export const EGG_IDS = ["landing", "vault", "wall"] as const;
 export type EggId = (typeof EGG_IDS)[number];
 
 const KEY = "archive:eggs";
+const REVEAL_KEY = "archive:eggs-revealed";
 const EVENT = "archive:eggs-changed";
+
+function readRevealed(): boolean {
+  if (typeof window === "undefined") return false;
+  try {
+    return window.localStorage.getItem(REVEAL_KEY) === "1";
+  } catch {
+    return false;
+  }
+}
+
+export function revealEggs() {
+  if (typeof window === "undefined") return;
+  if (readRevealed()) return;
+  window.localStorage.setItem(REVEAL_KEY, "1");
+  window.dispatchEvent(new CustomEvent(EVENT));
+}
 
 function read(): EggId[] {
   if (typeof window === "undefined") return [];
