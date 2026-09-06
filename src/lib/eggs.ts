@@ -44,14 +44,19 @@ export function findEgg(id: EggId) {
 export function resetEggs() {
   if (typeof window === "undefined") return;
   window.localStorage.removeItem(KEY);
+  window.localStorage.removeItem(REVEAL_KEY);
   window.dispatchEvent(new CustomEvent(EVENT));
 }
 
 export function useEggs() {
   const [found, setFound] = useState<EggId[]>([]);
+  const [revealed, setRevealed] = useState(false);
 
   useEffect(() => {
-    const sync = () => setFound(read());
+    const sync = () => {
+      setFound(read());
+      setRevealed(readRevealed());
+    };
     sync();
     window.addEventListener(EVENT, sync);
     window.addEventListener("storage", sync);
