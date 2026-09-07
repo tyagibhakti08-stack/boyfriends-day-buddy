@@ -554,7 +554,7 @@ function Report() {
 
 const tracks: { title: string; note: string; src: string }[] = [
   { title: "song one", note: "the one that always plays in my head", src: trackA.url },
-  { title: "song two", note: "for 1am, when neither of us sleeps", src: trackB.url },
+  { title: "until i found u", note: "js like this song i'll never fall in love until i find u in every universe vaibav", src: trackB.url },
 ];
 
 
@@ -590,9 +590,9 @@ function RecordPlayer() {
   const skip = () => play((current + 1) % tracks.length);
 
   return (
-    <Section id="record" eyebrow="File 01.5" title="Press Play, Then Enter">
+    <Section id="record" eyebrow="File 01.5" title="set the mood?">
       <p className="-mt-6 mb-8 max-w-lg text-sm text-muted-foreground">
-        Every archive needs a soundtrack. Spin the record before you open the vault.
+        Every archive needs a soundtrack. Spin the record and let the music play in the background.
       </p>
 
       <div className={`${glass} flex flex-col items-center gap-10 p-8 sm:flex-row sm:items-center sm:p-10`}>
