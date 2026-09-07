@@ -2,7 +2,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useMemo, useRef, useState } from "react";
 
 import ThreeWishes from "@/components/ThreeWishes";
-import EasterEgg from "@/components/EasterEgg";
 
 
 
@@ -521,7 +520,6 @@ function Report() {
               <dt className="text-xs uppercase tracking-[0.2em] text-muted-foreground">{k}</dt>
               <dd className="text-right text-sm font-medium">
                 {v}
-                {k === "Name" && <EasterEgg id="landing" className="ml-2" />}
               </dd>
             </div>
           ))}
@@ -690,7 +688,7 @@ function Vault() {
   return (
     <Section id="vault" eyebrow="File 02" title="The Memory Vault">
       <p className="-mt-6 mb-8 max-w-lg text-sm text-muted-foreground">
-        Six sealed files. Tap one to open it. <EasterEgg id="vault" hint="✦" />
+        Six sealed files. Tap one to open it.
       </p>
 
       <div className="grid grid-cols-2 gap-5 sm:grid-cols-3">
@@ -919,7 +917,6 @@ function Wall() {
       </div>
       <div className="mt-8 flex items-center gap-3">
         <GlowButton onClick={reveal}>{exhausted ? "That's some of it out of many" : "Tell Me Something…"}</GlowButton>
-        <EasterEgg id="wall" hint="·" />
       </div>
 
     </Section>
