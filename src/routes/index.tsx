@@ -554,7 +554,7 @@ function Report() {
 
 const tracks: { title: string; note: string; src: string }[] = [
   { title: "Shinunoga-ewa", note: "the one that always plays in my head whenever i think abt u", src: trackA.url },
-  { title: "until i found u", note: "js like this song i'll never fall in love until i find u in every universe vaibav", src: trackB.url },
+  { title: "Until i found u", note: "js like this song i'll never fall in love until i find u in every universe vaibav", src: trackB.url },
 ];
 
 
