@@ -894,6 +894,76 @@ function Game() {
   );
 }
 
+/* ---------------- 5.5 through my eyes ---------------- */
+
+const eyeLines: { label: string; line: string }[] = [
+  {
+    label: "when you laugh",
+    line: "your whole face gives in to it, and i forget whatever i was worried about.",
+  },
+  {
+    label: "when you're quiet",
+    line: "you're not distant, you're thinking. and i love that i can just sit inside that silence with u.",
+  },
+  {
+    label: "when you're driving",
+    line: "one hand on the wheel, calm like nothing can go wrong. that's the safest i ever feel.",
+  },
+  {
+    label: "when you talk about ur dreams",
+    line: "ur eyes go somewhere far away and i want to follow u there.",
+  },
+  {
+    label: "when you look at me",
+    line: "i understand every love song that ever confused me before u.",
+  },
+  {
+    label: "always",
+    line: "u are not one of my favourite people, vaibav. u are THE person.",
+  },
+];
+
+function ThroughMyEyes() {
+  const [open, setOpen] = useState<number | null>(0);
+
+  return (
+    <Section id="eyes" eyebrow="File 04.5" title="lets see through my eyes?">
+      <p className="max-w-xl text-sm leading-relaxed text-muted-foreground">
+        u see yourself one way. this is how u look from where i'm standing — tap each one.
+      </p>
+      <div className="mt-8 grid gap-3">
+        {eyeLines.map((e, i) => {
+          const isOpen = open === i;
+          return (
+            <button
+              key={e.label}
+              onClick={() => setOpen(isOpen ? null : i)}
+              className={`${glass} w-full p-5 text-left transition-all duration-500 ${
+                isOpen ? "border-accent/50" : "hover:border-accent/30"
+              }`}
+            >
+              <div className="flex items-center justify-between gap-4">
+                <span className="font-display text-lg">{e.label}</span>
+                <span className={`text-accent transition-transform duration-500 ${isOpen ? "rotate-45" : ""}`}>
+                  ✦
+                </span>
+              </div>
+              <div
+                className="grid overflow-hidden transition-all duration-500"
+                style={{ gridTemplateRows: isOpen ? "1fr" : "0fr" }}
+              >
+                <p className="min-h-0 text-sm leading-relaxed text-foreground/85">
+                  <span className="block pt-3">{e.line}</span>
+                </p>
+              </div>
+            </button>
+          );
+        })}
+      </div>
+    </Section>
+  );
+}
+
 /* ---------------- 6. appreciation wall ---------------- */
 
 function Wall() {
