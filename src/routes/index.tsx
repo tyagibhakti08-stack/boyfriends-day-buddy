@@ -1012,10 +1012,7 @@ function ThroughMyEyes() {
 
                     {e.note && (
                       <div className="mt-5 border-t border-accent/20 pt-4">
-                        <span className="block text-[10px] uppercase tracking-[0.28em] text-accent/70">
-                          in my own words
-                        </span>
-                        <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{e.note}</p>
+                        <p className="text-sm leading-relaxed text-muted-foreground">{e.note}</p>
                       </div>
                     )}
                   </div>
