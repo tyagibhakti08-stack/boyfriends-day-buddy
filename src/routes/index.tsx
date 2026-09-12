@@ -983,14 +983,25 @@ function ThroughMyEyes() {
                 className="grid overflow-hidden transition-all duration-500"
                 style={{ gridTemplateRows: isOpen ? "1fr" : "0fr" }}
               >
-                <p className="min-h-0 text-sm leading-relaxed text-foreground/85">
+                <div className="min-h-0 text-sm leading-relaxed text-foreground/85">
                   <span className="block pt-3">{e.line}</span>
-                </p>
+                  {e.note && (
+                    <span className="mt-3 block border-l-2 border-accent/40 pl-3 text-[13px] italic text-muted-foreground">
+                      {e.note}
+                    </span>
+                  )}
+                </div>
               </div>
             </button>
           );
         })}
       </div>
+
+      <p className="mt-8 max-w-xl font-display text-lg leading-relaxed text-accent">
+        ive always heard of some people being the most beautiful or handsome person in the world.
+        never knew i'd get to call the most charming person mine?
+      </p>
+
     </Section>
   );
 }
