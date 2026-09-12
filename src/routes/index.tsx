@@ -896,30 +896,59 @@ function Game() {
 
 /* ---------------- 5.5 through my eyes ---------------- */
 
-const eyeLines: { label: string; line: string }[] = [
+const eyeLines: { label: string; line: string; note?: string }[] = [
   {
-    label: "when you laugh",
-    line: "your whole face gives in to it, and i forget whatever i was worried about.",
+    label: "ur hair",
+    line: "The way water ripples the moment my finger touches its surface, that’s exactly how your curls fall, wave after wave, effortlessly beautiful.",
   },
   {
-    label: "when you're quiet",
-    line: "you're not distant, you're thinking. and i love that i can just sit inside that silence with u.",
+    label: "ur lashes",
+    line: "Those long, naturally curved lashes, like soft crescent moons resting above her eyes—so beautiful, they make every other gaze seem a little less magical.",
+    note: "when it comes to the best eyelashes, my vaibav beats even the prettiest girls long luxuious lashes. here we girls wear mascara and do so many stuffs whereas u are naturally gifted with long, curve lashes.",
   },
   {
-    label: "when you're driving",
-    line: "one hand on the wheel, calm like nothing can go wrong. that's the safest i ever feel.",
+    label: "ur eyes",
+    line: "Your eyes hold galaxies I could never name; every time our gazes meet, I find myself lost among their stars.",
+    note: "tht spark tht even a matchstick cant produce, tht glow which makes everyother star dull and tht innocence which newborn babies hv...my vaibavs eyes hv it all",
   },
   {
-    label: "when you talk about ur dreams",
-    line: "ur eyes go somewhere far away and i want to follow u there.",
+    label: "ur smile",
+    line: "A smile so beautiful, even time seems to pause just to admire it, while my heart slows down for a moment, completely captivated.",
+    note: "i've said u multiply times and i'll continue to say it. vaibav ur smile is so magical tht i actually felt the world stop for a moment. tht day while playing pt and giggling, i fell for u second time but harder",
   },
   {
-    label: "when you look at me",
-    line: "i understand every love song that ever confused me before u.",
+    label: "ur moustache",
+    line: "That little moustache is soo cute, I just wanna playfully mess with those tiny little hairs",
   },
   {
-    label: "always",
-    line: "u are not one of my favourite people, vaibav. u are THE person.",
+    label: "ur lips",
+    line: "lips soo soft and pinkish tht even the flower petals would get jealous of it",
+  },
+  {
+    label: "ur voice",
+    line: "voice so deep and calming js like those ocean waves hitting the shore",
+    note: "i could hear ur voice forever and never get bored of it. it is so soothing tht even the melodious tune is nothing compared to it",
+  },
+  {
+    label: "ur neck",
+    line: "That little Adam’s apple caught me so off guard, I got nervous and swallowed hard before I could even say a word.",
+    note: "tht rainy day when u freshly recovered and i touched ur neck to check ur temp, I GULPED SO HARD WHEN I NOTICED UR ADAMS APPLE I SWEAR!!! never knew i would find it hot ToT",
+  },
+  {
+    label: "ur cheeks",
+    line: "Cheeks so cute and soft, they make me want to cup them and give them the gentlest little squish.",
+  },
+  {
+    label: "ur hands",
+    line: "like how a missing piece fits the puzzle , our hands fits perfectly together. never wanna let go of it.",
+  },
+  {
+    label: "ur height",
+    line: "maybe taller than me in height but always a shorty and a lil babyy in my eyes",
+  },
+  {
+    label: "u",
+    line: "the strongest person infront of the world but the same person who would melt in my arms and become a kid who needs comfort",
   },
 ];
 
@@ -929,8 +958,10 @@ function ThroughMyEyes() {
   return (
     <Section id="eyes" eyebrow="File 04.5" title="lets see through my eyes?">
       <p className="max-w-xl text-sm leading-relaxed text-muted-foreground">
-        u see yourself one way. this is how u look from where i'm standing — tap each one.
+        i always wanted u to see urself thru my eyes cuz then only u will understand how effortlessly
+        beautiful u are.
       </p>
+
       <div className="mt-8 grid gap-3">
         {eyeLines.map((e, i) => {
           const isOpen = open === i;
@@ -952,14 +983,25 @@ function ThroughMyEyes() {
                 className="grid overflow-hidden transition-all duration-500"
                 style={{ gridTemplateRows: isOpen ? "1fr" : "0fr" }}
               >
-                <p className="min-h-0 text-sm leading-relaxed text-foreground/85">
+                <div className="min-h-0 text-sm leading-relaxed text-foreground/85">
                   <span className="block pt-3">{e.line}</span>
-                </p>
+                  {e.note && (
+                    <span className="mt-3 block border-l-2 border-accent/40 pl-3 text-[13px] italic text-muted-foreground">
+                      {e.note}
+                    </span>
+                  )}
+                </div>
               </div>
             </button>
           );
         })}
       </div>
+
+      <p className="mt-8 max-w-xl font-display text-lg leading-relaxed text-accent">
+        ive always heard of some people being the most beautiful or handsome person in the world.
+        never knew i'd get to call the most charming person mine?
+      </p>
+
     </Section>
   );
 }
