@@ -962,40 +962,70 @@ function ThroughMyEyes() {
         beautiful u are.
       </p>
 
-      <div className="mt-8 grid gap-3">
+      <div className="mt-10 grid gap-4">
         {eyeLines.map((e, i) => {
           const isOpen = open === i;
           return (
             <button
               key={e.label}
               onClick={() => setOpen(isOpen ? null : i)}
-              className={`${glass} w-full p-5 text-left transition-all duration-500 ${
-                isOpen ? "border-accent/50" : "hover:border-accent/30"
+              className={`${glass} group relative w-full overflow-hidden p-6 text-left transition-all duration-700 sm:p-7 ${
+                isOpen
+                  ? "border-accent/60 shadow-[0_0_60px_-20px_var(--accent)]"
+                  : "border-border/60 hover:border-accent/30"
               }`}
             >
-              <div className="flex items-center justify-between gap-4">
-                <span className="font-display text-lg">{e.label}</span>
-                <span className={`text-accent transition-transform duration-500 ${isOpen ? "rotate-45" : ""}`}>
-                  ✦
+              {/* soft candle glow */}
+              <span
+                aria-hidden
+                className={`pointer-events-none absolute -left-10 -top-14 h-44 w-44 rounded-full bg-accent/20 blur-3xl transition-opacity duration-700 ${
+                  isOpen ? "opacity-100" : "opacity-0 group-hover:opacity-60"
+                }`}
+              />
+
+              <div className="relative flex items-baseline gap-3">
+                <span className="font-display text-xs tracking-[0.3em] text-accent/60">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <span className="font-display text-xl tracking-wide sm:text-2xl">{e.label}</span>
+                <span
+                  className={`ml-auto text-accent transition-all duration-700 ${
+                    isOpen ? "scale-110 opacity-100 beat" : "opacity-50"
+                  }`}
+                >
+                  ♥
                 </span>
               </div>
+
               <div
-                className="grid overflow-hidden transition-all duration-500"
+                className="relative grid overflow-hidden transition-all duration-700"
                 style={{ gridTemplateRows: isOpen ? "1fr" : "0fr" }}
               >
-                <div className="min-h-0 text-sm leading-relaxed text-foreground/85">
-                  <span className="block pt-3">{e.line}</span>
-                  {e.note && (
-                    <span className="mt-3 block border-l-2 border-accent/40 pl-3 text-[13px] italic text-muted-foreground">
-                      {e.note}
-                    </span>
-                  )}
+                <div className="min-h-0">
+                  <div className={`pt-5 transition-all duration-700 ${isOpen ? "opacity-100" : "opacity-0"}`}>
+                    <p className="relative font-display text-[1.05rem] italic leading-loose text-foreground/95 sm:text-xl">
+                      <span aria-hidden className="mr-1 text-2xl text-accent/50">
+                        “
+                      </span>
+                      {e.line}
+                    </p>
+
+                    {e.note && (
+                      <div className="mt-5 border-t border-accent/20 pt-4">
+                        <span className="block text-[10px] uppercase tracking-[0.28em] text-accent/70">
+                          in my own words
+                        </span>
+                        <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{e.note}</p>
+                      </div>
+                    )}
+                  </div>
                 </div>
               </div>
             </button>
           );
         })}
       </div>
+
 
       <p className="mt-8 max-w-xl font-display text-lg leading-relaxed text-accent">
         ive always heard of some people being the most beautiful or handsome person in the world.
