@@ -223,6 +223,7 @@ function Index() {
           <Vault />
           <Badges />
           <Game />
+          <ThroughMyEyes />
           <Wall />
           <Finale onReplay={replay} />
         </main>
