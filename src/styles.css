@@ -394,14 +394,6 @@ body {
   animation-delay: -4.2s;
 }
 
-.eyes-letter-field .eyes-floating-letter:nth-of-type(3n + 1) {
-  translate: 0 -8px;
-}
-
-.eyes-letter-field .eyes-floating-letter:nth-of-type(3n + 2) {
-  translate: 0 10px;
-}
-
 .eyes-letter-reveal {
   animation: eyes-letter-reveal 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
 }

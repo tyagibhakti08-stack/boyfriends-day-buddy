@@ -1026,11 +1026,13 @@ function ThroughMyEyes() {
                 key={`${letter}-${i}`}
                 type="button"
                 onClick={() => setSelected(i)}
-                className="eyes-floating-letter group relative grid aspect-square w-14 place-items-center rounded-full border border-accent/30 bg-background/70 font-display text-2xl text-accent shadow-[0_12px_40px_-18px_var(--accent)] backdrop-blur-md transition-[border-color,background-color,box-shadow] duration-500 hover:border-accent/70 hover:bg-accent/[0.09] hover:shadow-[0_16px_48px_-14px_var(--accent)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:w-[4.5rem] sm:text-3xl"
+                className="group relative grid aspect-square w-14 place-items-center rounded-full font-display text-2xl text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:w-[4.5rem] sm:text-3xl"
                 aria-label={`Open ${String(i + 1).padStart(2, "0")}: ${eyeLines[i]?.label}`}
               >
-                <span aria-hidden className="absolute inset-1 rounded-full border border-accent/10 transition-colors duration-500 group-hover:border-accent/30" />
-                <span>{letter}</span>
+                <span className="eyes-floating-letter absolute inset-0 grid place-items-center rounded-full border border-accent/30 bg-background/70 shadow-[0_12px_40px_-18px_var(--accent)] backdrop-blur-md transition-[border-color,background-color,box-shadow] duration-500 group-hover:border-accent/70 group-hover:bg-accent/[0.09] group-hover:shadow-[0_16px_48px_-14px_var(--accent)]">
+                  <span aria-hidden className="absolute inset-1 rounded-full border border-accent/10 transition-colors duration-500 group-hover:border-accent/30" />
+                  <span>{letter}</span>
+                </span>
                 <span aria-hidden className="absolute -bottom-5 font-body text-[0.55rem] tracking-[0.2em] text-muted-foreground/70">
                   {String(i + 1).padStart(2, "0")}
                 </span>
