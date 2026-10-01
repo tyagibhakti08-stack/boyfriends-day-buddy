@@ -377,6 +377,52 @@ body {
   .drift, .sway-slow, .stamp { animation: none !important; }
 }
 
+/* --- through my eyes letter constellation --- */
+.eyes-floating-letter {
+  animation: eyes-letter-float 5.2s ease-in-out infinite;
+}
+
+.eyes-floating-letter:nth-child(2n) {
+  animation-delay: -1.6s;
+}
+
+.eyes-floating-letter:nth-child(3n) {
+  animation-delay: -3.1s;
+}
+
+.eyes-floating-letter:nth-child(4n) {
+  animation-delay: -4.2s;
+}
+
+.eyes-letter-field .eyes-floating-letter:nth-of-type(3n + 1) {
+  translate: 0 -8px;
+}
+
+.eyes-letter-field .eyes-floating-letter:nth-of-type(3n + 2) {
+  translate: 0 10px;
+}
+
+.eyes-letter-reveal {
+  animation: eyes-letter-reveal 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes eyes-letter-float {
+  0%, 100% { transform: translateY(0) rotate(-1deg); }
+  50% { transform: translateY(-10px) rotate(1deg); }
+}
+
+@keyframes eyes-letter-reveal {
+  from { opacity: 0; transform: translateY(16px) scale(0.985); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .eyes-floating-letter,
+  .eyes-letter-reveal {
+    animation: none !important;
+  }
+}
+
 /* --- emotional warm backdrop --- */
 body {
   background-image:

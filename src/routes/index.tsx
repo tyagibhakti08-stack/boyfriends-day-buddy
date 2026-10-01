@@ -952,8 +952,11 @@ const eyeLines: { label: string; line: string; note?: string }[] = [
   },
 ];
 
+const eyeLetters = ["V", "A", "I", "B", "A", "V", "B", "A", "L", "A", "J", "I"];
+
 function ThroughMyEyes() {
-  const [open, setOpen] = useState<number | null>(0);
+  const [selected, setSelected] = useState<number | null>(null);
+  const selectedEntry = selected === null ? null : eyeLines[selected];
 
   return (
     <Section id="eyes" eyebrow="File 04.5" title="lets see through my eyes?">
@@ -962,65 +965,79 @@ function ThroughMyEyes() {
         beautiful u are.
       </p>
 
-      <div className="mt-10 grid gap-4">
-        {eyeLines.map((e, i) => {
-          const isOpen = open === i;
-          return (
+      <div className="mt-10 min-h-[29rem] sm:min-h-[31rem]">
+        {selectedEntry && selected !== null ? (
+          <div className="eyes-letter-reveal">
             <button
-              key={e.label}
-              onClick={() => setOpen(isOpen ? null : i)}
-              className={`${glass} group relative w-full overflow-hidden p-6 text-left transition-all duration-700 sm:p-7 ${
-                isOpen
-                  ? "border-accent/60 shadow-[0_0_60px_-20px_var(--accent)]"
-                  : "border-border/60 hover:border-accent/30"
-              }`}
+              type="button"
+              onClick={() => setSelected(null)}
+              className="group mb-5 inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/[0.07] px-4 py-2 text-xs uppercase tracking-[0.18em] text-accent transition-all duration-300 hover:border-accent/60 hover:bg-accent/[0.12] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              aria-label="Return to all letters"
+            >
+              <span aria-hidden className="transition-transform duration-300 group-hover:-translate-x-1">←</span>
+              all letters
+            </button>
+
+            <div
+              className={`${glass} group relative w-full overflow-hidden border-accent/60 p-6 text-left shadow-[0_0_60px_-20px_var(--accent)] transition-all duration-700 sm:p-7`}
             >
               {/* soft candle glow */}
               <span
                 aria-hidden
-                className={`pointer-events-none absolute -left-10 -top-14 h-44 w-44 rounded-full bg-accent/20 blur-3xl transition-opacity duration-700 ${
-                  isOpen ? "opacity-100" : "opacity-0 group-hover:opacity-60"
-                }`}
+                className="pointer-events-none absolute -left-10 -top-14 h-44 w-44 rounded-full bg-accent/20 opacity-100 blur-3xl transition-opacity duration-700"
               />
 
               <div className="relative flex items-baseline gap-3">
                 <span className="font-display text-xs tracking-[0.3em] text-accent/60">
-                  {String(i + 1).padStart(2, "0")}
+                  {String(selected + 1).padStart(2, "0")}
                 </span>
-                <span className="font-display text-xl tracking-wide sm:text-2xl">{e.label}</span>
-                <span
-                  className={`ml-auto text-accent transition-all duration-700 ${
-                    isOpen ? "scale-110 opacity-100 beat" : "opacity-50"
-                  }`}
-                >
-                  ♥
-                </span>
+                <span className="font-display text-xl tracking-wide sm:text-2xl">{selectedEntry.label}</span>
+                <span className="beat ml-auto scale-110 text-accent opacity-100 transition-all duration-700">♥</span>
               </div>
 
-              <div
-                className="relative grid overflow-hidden transition-all duration-700"
-                style={{ gridTemplateRows: isOpen ? "1fr" : "0fr" }}
-              >
+              <div className="relative grid overflow-hidden transition-all duration-700">
                 <div className="min-h-0">
-                  <div className={`pt-5 transition-all duration-700 ${isOpen ? "opacity-100" : "opacity-0"}`}>
+                  <div className="pt-5 opacity-100 transition-all duration-700">
                     <p className="relative font-display text-[1.05rem] italic leading-loose text-foreground/95 sm:text-xl">
                       <span aria-hidden className="mr-1 text-2xl text-accent/50">
                         “
                       </span>
-                      {e.line}
+                      {selectedEntry.line}
                     </p>
 
-                    {e.note && (
+                    {selectedEntry.note && (
                       <div className="mt-5 border-t border-accent/20 pt-4">
-                        <p className="text-sm leading-relaxed text-muted-foreground">{e.note}</p>
+                        <p className="text-sm leading-relaxed text-muted-foreground">{selectedEntry.note}</p>
                       </div>
                     )}
                   </div>
                 </div>
               </div>
-            </button>
-          );
-        })}
+            </div>
+          </div>
+        ) : (
+          <div
+            className="eyes-letter-field relative grid min-h-[29rem] grid-cols-4 place-items-center gap-x-3 gap-y-6 overflow-hidden rounded-3xl border border-foreground/[0.06] bg-foreground/[0.015] px-4 py-10 sm:min-h-[31rem] sm:grid-cols-6 sm:gap-x-6 sm:gap-y-10 sm:px-8"
+            aria-label="Vaibav Balaji — choose a letter"
+          >
+            <span aria-hidden className="pointer-events-none absolute inset-x-[12%] top-1/2 h-px bg-gradient-to-r from-transparent via-accent/20 to-transparent" />
+            {eyeLetters.map((letter, i) => (
+            <button
+                key={`${letter}-${i}`}
+                type="button"
+                onClick={() => setSelected(i)}
+                className="eyes-floating-letter group relative grid aspect-square w-14 place-items-center rounded-full border border-accent/30 bg-background/70 font-display text-2xl text-accent shadow-[0_12px_40px_-18px_var(--accent)] backdrop-blur-md transition-[border-color,background-color,box-shadow] duration-500 hover:border-accent/70 hover:bg-accent/[0.09] hover:shadow-[0_16px_48px_-14px_var(--accent)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:w-[4.5rem] sm:text-3xl"
+                aria-label={`Open ${String(i + 1).padStart(2, "0")}: ${eyeLines[i]?.label}`}
+              >
+                <span aria-hidden className="absolute inset-1 rounded-full border border-accent/10 transition-colors duration-500 group-hover:border-accent/30" />
+                <span>{letter}</span>
+                <span aria-hidden className="absolute -bottom-5 font-body text-[0.55rem] tracking-[0.2em] text-muted-foreground/70">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+              </button>
+            ))}
+          </div>
+        )}
       </div>
 
 
