@@ -20,6 +20,7 @@ import familyAsset from "@/assets/family2.jpg.asset.json";
 import sisAsset from "@/assets/sis2.jpg.asset.json";
 import memoryRoadtrip from "@/assets/memory-roadtrip.jpg";
 import gngAsset from "@/assets/gng.jpg.asset.json";
+import { createPortal } from "react-dom";
 import surpriseVideo from "@/assets/surprise.mp4.asset.json";
 import memoryIcecream from "@/assets/memory-icecream.jpg";
 import memoryDance from "@/assets/memory-dance.jpg";
@@ -1185,7 +1186,7 @@ function Finale({ onReplay }: { onReplay: () => void }) {
             <div className="mt-4">
               <GlowButton onClick={openSurprise}>onee lastttt surprisee? 🎁</GlowButton>
             </div>
-            {surprise && (
+            {surprise && createPortal(
               <div className="fixed inset-0 z-[60] flex flex-col items-center justify-center overflow-y-auto bg-background px-5 py-12 text-center">
                 <p className="rise text-[0.7rem] uppercase tracking-[0.45em] text-accent">one last surprise</p>
                 <video
@@ -1198,7 +1199,8 @@ function Finale({ onReplay }: { onReplay: () => void }) {
                 <div className="mt-8">
                   <GlowButton onClick={onReplay}>REPLAY THE WHOLE THING ↻</GlowButton>
                 </div>
-              </div>
+              </div>,
+              document.body,
             )}
 
           </div>
