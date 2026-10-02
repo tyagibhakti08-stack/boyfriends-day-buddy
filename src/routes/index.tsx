@@ -904,7 +904,7 @@ const eyeLines: { label: string; line: string; note?: string }[] = [
   },
   {
     label: "ur lashes",
-    line: "Those long, naturally curved lashes, like soft crescent moons resting above her eyes—so beautiful, they make every other gaze seem a little less magical.",
+    line: "Those long, naturally curved lashes, like soft crescent moons resting above ur eyes—so beautiful, they make every other gaze seem a little less magical.",
     note: "when it comes to the best eyelashes, my vaibav beats even the prettiest girls long luxuious lashes. here we girls wear mascara and do so many stuffs whereas u are naturally gifted with long, curve lashes.",
   },
   {
@@ -962,8 +962,7 @@ function ThroughMyEyes() {
   return (
     <Section id="eyes" eyebrow="File 04.5" title="lets see through my eyes?">
       <p className="max-w-xl text-sm leading-relaxed text-muted-foreground">
-        i always wanted u to see urself thru my eyes cuz then only u will understand how effortlessly
-        beautiful u are.
+        I always wanted u to see urself thru my eyes cuz then only u will understand how effortlessly beautiful u are. Tap each letter to reveal it
       </p>
 
       <div className="mt-10 min-h-[29rem] sm:min-h-[31rem]">
@@ -1045,7 +1044,6 @@ function ThroughMyEyes() {
 
 
       <p className="mt-8 max-w-xl font-display text-lg leading-relaxed text-accent">
-        ive always heard of some people being the most beautiful or handsome person in the world.
         never knew i'd get to call the most charming person mine?
       </p>
 
@@ -1171,7 +1169,7 @@ function Finale({ onReplay }: { onReplay: () => void }) {
               </div>
 
               <p className="mt-10 text-sm leading-relaxed text-muted-foreground sm:text-base">
-                Ur parents, ur sis, nithin, ashwin, merien, all of ur frnds, ur teachers will be there for u and ofcc lets not forget ur buritto :D.... when the whole world is against u, I'll be always there with my arms opened widely for u. The times u js want to hug someone , I'll always comfort u while running my fingers thru ur hair. During ur ups and down, I'll be beside u my love ❤️❤️
+                Ur parents, ur sis, nithin, all of ur frnds, will be there for u and ofcc lets not forget ur buritto :D.... when the whole world is against u, I'll be always there with my arms opened widely for u. The times u js want to hug someone , I'll always comfort u while running my fingers thru ur hair. During ur ups and down, I'll be beside u my love ❤️❤️
               </p>
               <p className="mt-6 font-display text-xl text-accent">Always yours, Bhakti</p>
             </div>
