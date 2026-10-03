@@ -558,7 +558,7 @@ function Report() {
 /* ---------------- 2.5 record player ---------------- */
 
 const tracks: { title: string; note: string; src: string }[] = [
-  { title: "Blue", note: "without u, my life would be colourless", src: trackBlue.url },
+  { title: "Blue\n\n", note: "without u, my life would be colourless", src: trackBlue.url },
   { title: "Shinunoga-ewa", note: "the one that always plays in my head whenever i think abt u", src: trackA.url },
   { title: "Until i found u", note: "js like this song i'll never fall in love until i find u in every universe vaibav", src: trackB.url },
 ];
