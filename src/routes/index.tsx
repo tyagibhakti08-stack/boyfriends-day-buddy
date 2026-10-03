@@ -27,6 +27,7 @@ import memoryDance from "@/assets/memory-dance.jpg";
 import memoryPicnic from "@/assets/memory-picnic.jpg";
 import trackA from "@/assets/track-a.m4a.asset.json";
 import trackB from "@/assets/track-b.m4a.asset.json";
+import trackBlue from "@/assets/blue-piano.mp3.asset.json";
 
 
 export const Route = createFileRoute("/")({
@@ -557,6 +558,7 @@ function Report() {
 /* ---------------- 2.5 record player ---------------- */
 
 const tracks: { title: string; note: string; src: string }[] = [
+  { title: "Blue (piano cover)", note: "the softest way to start our little movie :)", src: trackBlue.url },
   { title: "Shinunoga-ewa", note: "the one that always plays in my head whenever i think abt u", src: trackA.url },
   { title: "Until i found u", note: "js like this song i'll never fall in love until i find u in every universe vaibav", src: trackB.url },
 ];
